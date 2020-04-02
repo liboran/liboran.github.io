@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-02T07:29:07.259Z</updated>
+    <updated>2020-04-02T12:46:22.901Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[KG音乐(非VIP)下载]]></title>
+        <id>https://liboran.github.io/post/KG_Music/</id>
+        <link href="https://liboran.github.io/post/KG_Music/">
+        </link>
+        <updated>2020-04-02T12:33:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>写了个小爬虫练一练</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>写了个小爬虫练一练</p>
+<!-- more -->
+<p>##制作过程<br>
+###接口分析<br>
+在酷狗首页进行抓包分析，当输入需要搜索的歌曲名称搜索时，可找出下图链接，其中包含着搜索到的歌曲的第一页歌曲信息。<br>
+<img src="https://liboran.github.io/post-images/1585830932445.png" alt="" loading="lazy"><br>
+在歌曲播放界面可以找出这个json文件里面有歌曲下载链接，hash值可在上一个链接请求中找到。<br>
+<img src="https://liboran.github.io/post-images/1585830983021.png" alt="" loading="lazy"><br>
+##使用方法<br>
+如下图所示：<br>
+<img src="https://liboran.github.io/post-images/1585831012076.png" alt="" loading="lazy"><br>
+下载好的歌曲可在“Download”文件夹中找到。<br>
+<img src="https://liboran.github.io/post-images/1585831034931.png" alt="" loading="lazy"><br>
+<a href="https://github.com/12218/programs/tree/master/KG_Music">本程序的GitHub地址在此处。</a><br>
+本文章中所有程序仅用于学习交流，禁止用于其他用途。如有侵权，请联系本人将侵权内容删除。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[超星学习通搜题程序]]></title>
         <id>https://liboran.github.io/post/Chaoxing/</id>
