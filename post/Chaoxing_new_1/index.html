@@ -9,6 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="/media/css/post.css">
     <link rel="stylesheet" href="/media/live2d/css/live2d.css" />
     
 </head>
@@ -44,77 +45,57 @@
     </ul>
 </div>
 
-<div class="mdui-container">
-    <div class="mdui-row">
-        <div class="mdui-col-md-10 mdui-col-offset-md-1 ">
-            
-            
-                <div class="mdui-typo-display-1 mdui-m-b-2 mdui-m-l-1">
-                    <div class="mdui-row">
-                        <div class="mdui-col-xs-12">2020</div>
-                    </div>
-                    <div class="mdui-row">
-                        
-                        
-                            <div class="mdui-col-xs-6 mdui-p-a-1">
-                                <div class="mdui-card">
-                                    <div class="mdui-card-media">
-                                        <img width=536px height=300px src=" https://liboran.github.io/post-images/Chaoxing_new_1.png"/>
-                                        <div class="mdui-card-primary">
-                                            <div class="mdui-card-primary-title">超星学习通程序新功能</div>
-                                            <div class="mdui-card-primary-subtitle">2020-04-03</div>
-                                        </div>
-                                    </div>
-                                    <div class="mdui-card-actions" style="float:right;">
-                                        <a href="https://liboran.github.io/post/Chaoxing_new_1/" class="mdui-btn mdui-color-theme-accent mdui-ripple">点击查看</a>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        
-                        
-                            <div class="mdui-col-xs-6 mdui-p-a-1">
-                                <div class="mdui-card">
-                                    <div class="mdui-card-media">
-                                        <img width=536px height=300px src=" https://liboran.github.io/post-images/KG_Music.png"/>
-                                        <div class="mdui-card-primary">
-                                            <div class="mdui-card-primary-title">KG音乐(非VIP)下载</div>
-                                            <div class="mdui-card-primary-subtitle">2020-04-02</div>
-                                        </div>
-                                    </div>
-                                    <div class="mdui-card-actions" style="float:right;">
-                                        <a href="https://liboran.github.io/post/KG_Music/" class="mdui-btn mdui-color-theme-accent mdui-ripple">点击查看</a>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        
-                        
-                            <div class="mdui-col-xs-6 mdui-p-a-1">
-                                <div class="mdui-card">
-                                    <div class="mdui-card-media">
-                                        <img width=536px height=300px src=" https://liboran.github.io/post-images/Chaoxing.jpeg"/>
-                                        <div class="mdui-card-primary">
-                                            <div class="mdui-card-primary-title">超星学习通搜题程序</div>
-                                            <div class="mdui-card-primary-subtitle">2020-04-01</div>
-                                        </div>
-                                    </div>
-                                    <div class="mdui-card-actions" style="float:right;">
-                                        <a href="https://liboran.github.io/post/Chaoxing/" class="mdui-btn mdui-color-theme-accent mdui-ripple">点击查看</a>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        
-                    </div>
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title">超星学习通程序新功能</h1>
+                    <p class="entry-census">发布于 2020-04-03</p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <p>新增了测试搜题模式</p>
+<!-- more -->
+<p>今天在做超星学习通测试时，有了新发现😏。<br>
+<img src="https://liboran.github.io/post-images/1585918110724.png" alt="" loading="lazy"><br>
+当查看网页源代码时，发现里面有一个script标签里面有一大堆Unicode编码的字符串。<br>
+<img src="https://liboran.github.io/post-images/1585918381983.png" alt="" loading="lazy"><br>
+从网上随便找一个Unicode编码解码的网站将这一部分解码之后，就能得到里面含有题目和选项的网页源代码。<br>
+<img src="https://liboran.github.io/post-images/1585918612267.png" alt="" loading="lazy"><br>
+仔细观察这一些代码，发现<strong>有一部分</strong>选项里面会有一个“特殊名称”的值“<strong>isanswer</strong>”。<br>
+<img src="https://liboran.github.io/post-images/1585918879556.png" alt="" loading="lazy"><br>
+这个值名称为“isanswer”，值为“true”，很容易让人联想到这会是题目的正确答案😦😦😦。<br>
+后来经过多次做测试、核对答案，可以确定这竟然真的是正确答案。<br>
+所以下一步就把答案部分提取出来就行了。<br>
+使用python的正则表达式就能够很轻易将答案部分匹配出来，就搞定了😎。</p>
+<p>我将新的功能加到了“超星学习通搜题程序”里面，<a href="https://liboran.github.io/post/Chaoxing/">详细内容请看这里</a>。</p>
+
                 </div>
-            
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
+                
+                
+                <a href="https://liboran.github.io/post/KG_Music/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter">KG音乐(非VIP)下载</div>
+                    </div>
+                </a>
+                
+            </div>
         </div>
     </div>
-    <div class="mdui-row">
-        
-
-    </div>
+    <br>
+    
+    <div class="comment"></div>
 </div>
 <footer class="mdui-container footer ">
     <div class="head_card-offset"></div>
@@ -166,4 +147,23 @@
 
 </body>
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        
+        
+        
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
 </html>
