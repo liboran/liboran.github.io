@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-03T13:17:23.098Z</updated>
+    <updated>2020-04-03T13:21:19.124Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -21,13 +21,14 @@
         <content type="html"><![CDATA[<p>新增了测试搜题模式</p>
 <!-- more -->
 <p>今天在做超星学习通测试时，有了新发现😏。<br>
-<img src="https://liboran.github.io/post-images/1585918110724.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1585919996157.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1585920024353.png" alt="" loading="lazy"><br>
 当查看网页源代码时，发现里面有一个script标签里面有一大堆Unicode编码的字符串。<br>
-<img src="https://liboran.github.io/post-images/1585918381983.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1585920048755.png" alt="" loading="lazy"><br>
 从网上随便找一个Unicode编码解码的网站将这一部分解码之后，就能得到里面含有题目和选项的网页源代码。<br>
-<img src="https://liboran.github.io/post-images/1585918612267.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1585920058954.png" alt="" loading="lazy"><br>
 仔细观察这一些代码，发现<strong>有一部分</strong>选项里面会有一个“特殊名称”的值“<strong>isanswer</strong>”。<br>
-<img src="https://liboran.github.io/post-images/1585918879556.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1585920070570.png" alt="" loading="lazy"><br>
 这个值名称为“isanswer”，值为“true”，很容易让人联想到这会是题目的正确答案😦😦😦。<br>
 后来经过多次做测试、核对答案，可以确定这竟然真的是正确答案。<br>
 所以下一步就把答案部分提取出来就行了。<br>
