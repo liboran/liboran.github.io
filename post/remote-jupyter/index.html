@@ -50,61 +50,51 @@
         <main id="main" class="site-main" role="main">
             <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
                 <header class="entry-header">
-                    <h1 class="entry-title">使用Linux Deploy在手机安装Ubuntu</h1>
-                    <p class="entry-census">发布于 2020-04-04</p>
+                    <h1 class="entry-title">Jupyter Notebook开启远程连接</h1>
+                    <p class="entry-census">发布于 2020-04-05</p>
                     <hr>
                 </header>
                 <div class="neko">
-                    <p>记录一下Linux Deploy的使用方法</p>
+                    <p>在昨天刚刚部署的Linux上面安装Jupyter Notebook，<br>
+敲代码更方便！</p>
 <!-- more -->
 <h1 id="前言">前言</h1>
-<p>其实很早之前就搞过Linux Deploy，当时弄了很久才弄成功。但是当时并没有记笔记的习惯，今天才发现<strong>竟然忘了怎么做了</strong>...<br>
-今天只好“重操旧业”，竟然弄了一下午，安装了五六回才搞成。<br>
-<img src="https://liboran.github.io/post-images/1586016463867.gif" alt="" loading="lazy"><br>
-这回一定要记录下来，以免以后重复掉坑。</p>
-<h1 id="准备">准备</h1>
-<p>需要的软件和工具有旧手机一部、<a href='https://github.com/meefik/linuxdeploy/releases'>Linux Deploy</a>(最好版本对应)、BusyBox Free、KingRoot(这个随意，只要能够root手机就可以)。<br>
-<img src="https://liboran.github.io/post-images/1586017179881.jpeg" alt="" loading="lazy"></p>
-<h1 id="安装过程">安装过程</h1>
-<h2 id="1root手机">1.root手机</h2>
-<p>我是使用KingRoot这款APP将手机root的，root手机的方式很多，<a href='https://baidu.com'>百度一下，你就知道</a>。这是我把手机root好之后的图片，我是使用的华为荣耀6Plus。<br>
-<img src="https://liboran.github.io/post-images/1586017532433.jpeg" alt="" loading="lazy"></p>
-<h2 id="2安装busybox">2.安装BusyBox</h2>
-<p>BusyBox这个APP的作用是扩展Linux命令，安装的时候只需要把安装目录改成“/system/xbin”即可，然后点击“Install”就行啦。<br>
-<img src="https://liboran.github.io/post-images/1586017729360.jpeg" alt="" loading="lazy"></p>
-<h2 id="3使用linux-deploy部署linux系统"><strong>3.使用Linux Deploy部署Linux系统</strong></h2>
-<p>（1）打开Linux Deploy，先点击左上角的三道杠，点击“<strong>设置</strong>”。</p>
-<p>（2）勾选上“<strong>CPU唤醒</strong>”，这样在熄屏时也能保持运行状态（如下图）。<br>
-<img src="https://liboran.github.io/post-images/1586018044271.jpeg" alt="" loading="lazy"><br>
-将“<strong>PATH变量</strong>”更改为“<strong>/system/xbin</strong>”，同BusyBox的安装目录。<br>
-并且勾选上“<strong>启用CLI</strong>”（如下图）。<br>
-<img src="https://liboran.github.io/post-images/1586018342163.jpeg" alt="" loading="lazy"><br>
-（3）返回主界面，点击右下角难以名状的一个图标，开始修改Linux的属性。</p>
-<p><strong>发行版GUN/Linux</strong>默认为Debian，在这里我改成了<strong>Ubuntu</strong>。</p>
-<p>架构保持默认即可。</p>
-<p><strong>发行版GUN/Linux版本</strong>改为<strong>bionic</strong>。</p>
-<p>源地址一定要记得更改！！！否则会下载得慢的离谱...<br>
-我把源地址改成了清华大学镜像网站的源，速度会很快（源地址：http://tuna.tsinghua.edu.cn/ubuntu-ports）。</p>
-<p><strong>安装路径</strong>改为“/mnt/sdcard/linux/linux.img”，否则可能会出错。</p>
-<p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586018854829.jpeg" alt="" loading="lazy"></p>
-<p>我这里把<strong>镜像大小</strong>改成了3072，这个值请根据自己手机情况自行判断。</p>
-<p><strong>文件系统</strong>改成“<strong>ext4</strong>”。</p>
-<p><strong>用户名</strong>以及<strong>用户密码</strong>自行定义即可，之后登陆会用到。</p>
-<p><strong>本地化</strong>是选择语言，我这里改用“<strong>zh_CN.UTF-8</strong>”。</p>
-<p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586021552095.png" alt="" loading="lazy"></p>
-<p>将挂载下的<strong>启用</strong>勾选上，并且在<strong>挂载点列表</strong>中添加挂载点“<strong>/system/</strong>”。这是让Linux系统和手机共享目录。</p>
-<p>一定要勾选上<strong>SSH</strong>下的<strong>启用</strong>！！！否则无法使用SSH对Ubuntu进行连接。</p>
-<p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586019676938.jpeg" alt="" loading="lazy"></p>
-<p>最后如果想安装图形界面，可以勾选上，然后使用“VNC Viewer”之类的软件连接。</p>
-<p>（4）属性设置好之后回到主界面，点击右上角的三个点，点击“安装”，Linux Deploy就会开始安装Ubuntu系统啦，用的时间会很长，需要耐心等待。当出现“<strong>&lt;&lt;&lt;deploy</strong>”时，说明安装完成了。</p>
-<p><code>如果在安装过程中Linux Deploy卡在了某一环节，可以点击屏幕下方的“停止”，当出现“&lt;&lt;&lt;stop”之后，再次点击“安装”就行了。</code></p>
-<p>如果安装完成之后，点击“启动”，出现了“Starting extra/ssh ... done”说明安装成功了。</p>
-<h1 id="使用">使用</h1>
-<p>安装成功之后可以使用SSH连接软件与手机上的Linux连接控制。</p>
-<figure data-type="image" tabindex="1"><img src="https://liboran.github.io/post-images/1586020563399.jpg" alt="" loading="lazy"></figure>
+<p>刚刚接触Linux，用Vim这种编辑器实在用不习惯啊。。。<br>
+只好安装了一个Jupyter Notebook，开启远程连接，敲代码也挺香😎。</p>
+<h1 id="准备工作">准备工作</h1>
+<p>使用命令行安装Jupyter Notebook，直接输入“pip3 install jupyter”，之后耐心等待就行了（前提是安装了pip！！！）。</p>
+<p>如果安装完之后，输入“jupyter notebook”，可以正常启动，就算是安装成功了。</p>
+<h1 id="开始配置远程连接">开始配置远程连接</h1>
+<p>1.在终端输入“<strong>jupyter notebook --generate-config --allow-root</strong>”，就能生成Jupyter Notebook的配置文件。这个配置文件在“~/.jupyter/”文件夹内。<br>
+<img src="https://liboran.github.io/post-images/1586057330980.png" alt="" loading="lazy"><br>
+2.在终端输入“ipython”，打开ipython。</p>
+<p>在打开的ipython中输入“<strong>from notebook.auth import passwd</strong>”，之后再输入“<strong>passwd()</strong>”，之后会提示要输入密码，这个密码是远程连接时的登陆密码。<br>
+<img src="https://liboran.github.io/post-images/1586057600578.png" alt="" loading="lazy"><br>
+将生成的“sha1:……”这串文字复制保存下来，这是密码的hash值。</p>
+<p>3.使用cd命令切换到“~/.jupyter/”文件夹内，输入“<strong>vim jupyter_notebook_config.py</strong>”,开始配置远程连接。<br>
+<img src="https://liboran.github.io/post-images/1586057882118.png" alt="" loading="lazy"><br>
+对配置文件里面的以下值做出修改：</p>
+<p>（1）允许用户root运行：<br>
+c.NotebookApp.allow_root =True<br>
+<img src="https://liboran.github.io/post-images/1586058402773.png" alt="" loading="lazy"><br>
+（2）修改服务监听地址：<br>
+c.NotebookApp.ip = '*'<br>
+<img src="https://liboran.github.io/post-images/1586058411599.png" alt="" loading="lazy"><br>
+（3）是否打开浏览器：<br>
+c.NotebookApp.open_browser = False</p>
+<p>（4）hash值（将生成的“sha1:……”填入）：<br>
+c.NotebookApp.password = 'sha1:……'</p>
+<p>（5）服务监听的端口：<br>
+c.NotebookApp.port = 8888<br>
+<img src="https://liboran.github.io/post-images/1586058548376.png" alt="" loading="lazy"><br>
+注意要去掉前面的“#”。</p>
+<p>这就行啦！</p>
+<h1 id="使用过程">使用过程</h1>
+<p>在终端输入“jupyter notebook”，启动Jupyter Notebook。</p>
+<p>在浏览器输入“ip地址:端口号”,例如：192.168.0.10:8888。</p>
+<p>第一次连接，需要输入密码，就是刚才自己设置的那个。</p>
+<p>之后就能打开Jupyter Notebook啦！<br>
+<img src="https://liboran.github.io/post-images/1586058826997.png" alt="" loading="lazy"></p>
 
                 </div>
             </article>
@@ -114,20 +104,14 @@
         <div class="mdui-container">
             <div class="mdui-row">
                 
-                <a href="https://liboran.github.io/post/remote-jupyter/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
-                    <div class="doc-footer-nav-text">
-                        <i class="mdui-icon material-icons">arrow_back</i>
-                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
-                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">Jupyter Notebook开启远程连接</div>
-                    </div>
-                </a>
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
                 
                 
-                <a href="https://liboran.github.io/post/Chaoxing_new_1/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://liboran.github.io/post/linux-deploy/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>
-                        <div class="doc-footer-nav-chapter">超星学习通程序新功能</div>
+                        <div class="doc-footer-nav-chapter">使用Linux Deploy在手机安装Ubuntu</div>
                     </div>
                 </a>
                 

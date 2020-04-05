@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-04T17:32:55.118Z</updated>
+    <updated>2020-04-05T03:54:27.352Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,57 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[Jupyter Notebook开启远程连接]]></title>
+        <id>https://liboran.github.io/post/remote-jupyter/</id>
+        <link href="https://liboran.github.io/post/remote-jupyter/">
+        </link>
+        <updated>2020-04-05T03:11:26.000Z</updated>
+        <summary type="html"><![CDATA[<p>在昨天刚刚部署的Linux上面安装Jupyter Notebook，<br>
+敲代码更方便！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在昨天刚刚部署的Linux上面安装Jupyter Notebook，<br>
+敲代码更方便！</p>
+<!-- more -->
+<h1 id="前言">前言</h1>
+<p>刚刚接触Linux，用Vim这种编辑器实在用不习惯啊。。。<br>
+只好安装了一个Jupyter Notebook，开启远程连接，敲代码也挺香😎。</p>
+<h1 id="准备工作">准备工作</h1>
+<p>使用命令行安装Jupyter Notebook，直接输入“pip3 install jupyter”，之后耐心等待就行了（前提是安装了pip！！！）。</p>
+<p>如果安装完之后，输入“jupyter notebook”，可以正常启动，就算是安装成功了。</p>
+<h1 id="开始配置远程连接">开始配置远程连接</h1>
+<p>1.在终端输入“<strong>jupyter notebook --generate-config --allow-root</strong>”，就能生成Jupyter Notebook的配置文件。这个配置文件在“~/.jupyter/”文件夹内。<br>
+<img src="https://liboran.github.io/post-images/1586057330980.png" alt="" loading="lazy"><br>
+2.在终端输入“ipython”，打开ipython。</p>
+<p>在打开的ipython中输入“<strong>from notebook.auth import passwd</strong>”，之后再输入“<strong>passwd()</strong>”，之后会提示要输入密码，这个密码是远程连接时的登陆密码。<br>
+<img src="https://liboran.github.io/post-images/1586057600578.png" alt="" loading="lazy"><br>
+将生成的“sha1:……”这串文字复制保存下来，这是密码的hash值。</p>
+<p>3.使用cd命令切换到“~/.jupyter/”文件夹内，输入“<strong>vim jupyter_notebook_config.py</strong>”,开始配置远程连接。<br>
+<img src="https://liboran.github.io/post-images/1586057882118.png" alt="" loading="lazy"><br>
+对配置文件里面的以下值做出修改：</p>
+<p>（1）允许用户root运行：<br>
+c.NotebookApp.allow_root =True<br>
+<img src="https://liboran.github.io/post-images/1586058402773.png" alt="" loading="lazy"><br>
+（2）修改服务监听地址：<br>
+c.NotebookApp.ip = '*'<br>
+<img src="https://liboran.github.io/post-images/1586058411599.png" alt="" loading="lazy"><br>
+（3）是否打开浏览器：<br>
+c.NotebookApp.open_browser = False</p>
+<p>（4）hash值（将生成的“sha1:……”填入）：<br>
+c.NotebookApp.password = 'sha1:……'</p>
+<p>（5）服务监听的端口：<br>
+c.NotebookApp.port = 8888<br>
+<img src="https://liboran.github.io/post-images/1586058548376.png" alt="" loading="lazy"><br>
+注意要去掉前面的“#”。</p>
+<p>这就行啦！</p>
+<h1 id="使用过程">使用过程</h1>
+<p>在终端输入“jupyter notebook”，启动Jupyter Notebook。</p>
+<p>在浏览器输入“ip地址:端口号”,例如：192.168.0.10:8888。</p>
+<p>第一次连接，需要输入密码，就是刚才自己设置的那个。</p>
+<p>之后就能打开Jupyter Notebook啦！<br>
+<img src="https://liboran.github.io/post-images/1586058826997.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[使用Linux Deploy在手机安装Ubuntu]]></title>
         <id>https://liboran.github.io/post/linux-deploy/</id>
