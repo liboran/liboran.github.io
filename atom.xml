@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-05T03:54:27.352Z</updated>
+    <updated>2020-04-07T16:33:56.983Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,43 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[使用PSCP传输文件]]></title>
+        <id>https://liboran.github.io/post/pscp/</id>
+        <link href="https://liboran.github.io/post/pscp/">
+        </link>
+        <updated>2020-04-07T15:42:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>说说Windows和Linux之间的文件传输</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>说说Windows和Linux之间的文件传输</p>
+<!-- more -->
+<p>本来是想在手机上的Linux系统里面安装FTP，使用FTP传输文件什么的。</p>
+<p>但是。。。没成功。。。安装好之后一直无法访问。。。<br>
+<img src="https://liboran.github.io/post-images/1586276717640.png" alt="" loading="lazy"><br>
+所以FTP这个方法以后找时间再说说。。。</p>
+<h1 id="pscp">PSCP</h1>
+<p>用过putty的人应该都知道pscp这个东西，基于SSH，可以传输从单个文件到多个文件夹。<br>
+<img src="https://liboran.github.io/post-images/1586274669032.png" alt="" loading="lazy"><br>
+这个可执行文件并不能直接打开，而是需要使用<strong>命令提示符</strong>才可以。</p>
+<h1 id="使用步骤">使用步骤</h1>
+<h2 id="windows上传到linux">Windows上传到Linux</h2>
+<p>1.切换到pscp.exe文件所在目录下，如果现在在命令提示符中输入“pscp.exe”就能看到pscp被启动了。<br>
+会有很多pscp命令会出现。<br>
+<img src="https://liboran.github.io/post-images/1586275273791.png" alt="" loading="lazy"><br>
+2.传输单个文件时，需要输入这样的命令“<strong>pscp.exe 文件路径/文件名 主机名@ip:文件路径/文件名</strong>”。</p>
+<p><strong>IP地址之后一定要记得加“:”！！！</strong></p>
+<p>例如：把与pscp同文件夹的“chaoxing.py”文件传输到Linux系统<br>
+<img src="https://liboran.github.io/post-images/1586275624436.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586275822098.png" alt="" loading="lazy"><br>
+当输完命令回车之后，会提示需要输入Linux的用户的密码，输完之后，文件就会开始传输到Linux。<br>
+<img src="https://liboran.github.io/post-images/1586275995847.png" alt="" loading="lazy"></p>
+<h2 id="windows从linux获取">Windows从Linux获取</h2>
+<p>命令与前者相似，就是把传文件和获取文件的双方位置对调。<br>
+<img src="https://liboran.github.io/post-images/1586276386295.png" alt="" loading="lazy"></p>
+<h2 id="传输文件夹">传输文件夹</h2>
+<p>只要在命令中添加“-r”，传输的文件夹就会递归传输，就和Linux命令里面的删除文件夹“rm -r”道理一样。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Jupyter Notebook开启远程连接]]></title>
         <id>https://liboran.github.io/post/remote-jupyter/</id>
