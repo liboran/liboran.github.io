@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-08T16:09:37.521Z</updated>
+    <updated>2020-04-09T15:48:50.982Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -34,7 +34,7 @@
 会有很多pscp命令会出现。<br>
 <img src="https://liboran.github.io/post-images/1586275273791.png" alt="" loading="lazy"><br>
 2.传输单个文件时，需要输入这样的命令“<strong>pscp.exe 文件路径/文件名 主机名@ip:文件路径/文件名</strong>”。</p>
-<p><strong>IP地址之后一定要记得加“:”！！！</strong></p>
+<p><mark>IP地址之后一定要记得加“:”！！！</mark></p>
 <p>例如：把与pscp同文件夹的“chaoxing.py”文件传输到Linux系统<br>
 <img src="https://liboran.github.io/post-images/1586275624436.png" alt="" loading="lazy"><br>
 <img src="https://liboran.github.io/post-images/1586275822098.png" alt="" loading="lazy"><br>
