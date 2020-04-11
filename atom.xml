@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-10T15:52:19.919Z</updated>
+    <updated>2020-04-11T02:08:41.345Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,32 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[Django学习（二）]]></title>
+        <id>https://liboran.github.io/post/django_2/</id>
+        <link href="https://liboran.github.io/post/django_2/">
+        </link>
+        <updated>2020-04-11T01:39:07.000Z</updated>
+        <summary type="html"><![CDATA[<p>开始创建第一个页面！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>开始创建第一个页面！</p>
+<!-- more -->
+<h1 id="1创建一个html文件">1.创建一个HTML文件</h1>
+<p>自己创建的templates文件夹使用来存放HTML文件的。</p>
+<p>在这个文件夹里面创建一个HTML文件，取名为<strong>index.html</strong>。<br>
+<img src="https://liboran.github.io/post-images/1586569953439.png" alt="" loading="lazy"></p>
+<h1 id="2添加映射关系">2.添加映射关系</h1>
+<p>在views.py文件中添加映射关系。<br>
+<img src="https://liboran.github.io/post-images/1586570294199.png" alt="" loading="lazy"></p>
+<h1 id="3设置网页的url">3.设置网页的url</h1>
+<p>找到urls.py文件，网页的url关系都是在这里设置的。<br>
+<img src="https://liboran.github.io/post-images/1586570690412.png" alt="" loading="lazy"><br>
+其中“index/”是自己设置的url路径。</p>
+<p>在浏览器就可以从“127.0.0.1:8000/index”对这一页面进行访问。<br>
+<img src="https://liboran.github.io/post-images/1586570855085.png" alt="" loading="lazy"><br>
+此处的url如果设为空，则登陆“127.0.0.1:8000”看到的页面就是此页面。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Django学习(一)]]></title>
         <id>https://liboran.github.io/post/django_1/</id>
