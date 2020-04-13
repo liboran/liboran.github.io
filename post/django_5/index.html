@@ -50,27 +50,29 @@
         <main id="main" class="site-main" role="main">
             <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
                 <header class="entry-header">
-                    <h1 class="entry-title">Django学习（二）</h1>
-                    <p class="entry-census">发布于 2020-04-11</p>
+                    <h1 class="entry-title">Django学习 （五）</h1>
+                    <p class="entry-census">发布于 2020-04-13</p>
                     <hr>
                 </header>
                 <div class="neko">
-                    <p>开始创建第一个页面！</p>
+                    <p>谈一谈怎么把Django项目部署到服务器（歪门邪道警告）</p>
 <!-- more -->
-<h1 id="1创建一个html文件">1.创建一个HTML文件</h1>
-<p>自己创建的templates文件夹使用来存放HTML文件的。</p>
-<p>在这个文件夹里面创建一个HTML文件，取名为<strong>index.html</strong>。<br>
-<img src="https://liboran.github.io/post-images/1586569953439.png" alt="" loading="lazy"></p>
-<h1 id="2添加映射关系">2.添加映射关系</h1>
-<p>在views.py文件中添加映射关系。<br>
-<img src="https://liboran.github.io/post-images/1586570294199.png" alt="" loading="lazy"></p>
-<h1 id="3设置网页的url">3.设置网页的url</h1>
-<p>找到urls.py文件，网页的url关系都是在这里设置的。<br>
-<img src="https://liboran.github.io/post-images/1586570690412.png" alt="" loading="lazy"><br>
-其中“index/”是自己设置的url路径。</p>
-<p>在浏览器就可以从“127.0.0.1:8000/index”对这一页面进行访问。<br>
-<img src="https://liboran.github.io/post-images/1586570855085.png" alt="" loading="lazy"><br>
-此处的url如果设为空，则登陆“127.0.0.1:8000”看到的页面就是此页面。</p>
+<p>在学习Django的这几天，每当看到Django的项目可以在127.0.0.1:8000跑起来，都会想到如果这个项目运行在云服务器会是怎样，不久成为一个网站了吗？<br>
+<img src="https://liboran.github.io/post-images/1586776746593.jpg" alt="" loading="lazy"><br>
+说搞就搞。</p>
+<p>先使用pscp将这整个项目文件传输到阿里云服务器。并且在服务器搭建Django环境。</p>
+<p>依旧使用python manage.py runserver 0:8888将Django项目跑起来。</p>
+<p>从浏览器访问服务器的公网地址，端口8888，就能访问这个网站了！！！</p>
+<p>但是如果关闭这个进程，或是直接关闭终端，都会使这个Django项目关闭。。。</p>
+<p><strong>接下来重点到了！</strong><br>
+<img src="https://liboran.github.io/post-images/1586777292969.jpeg" alt="" loading="lazy"><br>
+如果想让Django项目在Ubuntu后台运行，需要这样运行：<br>
+<mark>nohup</mark> python manage.py runserver 0:8888 <mark>&amp;</mark>。</p>
+<p>其中nohup使项目可以在后台运行。“&amp;”可以让项目在SSH连接断开之后依旧连接。</p>
+<p>将这个项目停止的方法是：<br>
+使用<mark>netstat -ap|grep 8888</mark>来找出占用端口8888的进程，然后使用kill命令终止这个进程。</p>
+<p>效果还可以吧。<br>
+<img src="https://liboran.github.io/post-images/1586777749545.png" alt="" loading="lazy"></p>
 
                 </div>
             </article>
@@ -80,20 +82,14 @@
         <div class="mdui-container">
             <div class="mdui-row">
                 
-                <a href="https://liboran.github.io/post/django_3/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
-                    <div class="doc-footer-nav-text">
-                        <i class="mdui-icon material-icons">arrow_back</i>
-                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
-                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">Django学习（三）</div>
-                    </div>
-                </a>
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
                 
                 
-                <a href="https://liboran.github.io/post/django_1/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://liboran.github.io/post/django_4/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>
-                        <div class="doc-footer-nav-chapter">Django学习 (一)</div>
+                        <div class="doc-footer-nav-chapter">Django学习 （四）</div>
                     </div>
                 </a>
                 

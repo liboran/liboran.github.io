@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-13T10:45:30.177Z</updated>
+    <updated>2020-04-13T11:36:17.307Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[Django学习 （五）]]></title>
+        <id>https://liboran.github.io/post/django_5/</id>
+        <link href="https://liboran.github.io/post/django_5/">
+        </link>
+        <updated>2020-04-13T11:11:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>谈一谈怎么把Django项目部署到服务器（歪门邪道警告）</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>谈一谈怎么把Django项目部署到服务器（歪门邪道警告）</p>
+<!-- more -->
+<p>在学习Django的这几天，每当看到Django的项目可以在127.0.0.1:8000跑起来，都会想到如果这个项目运行在云服务器会是怎样，不久成为一个网站了吗？<br>
+<img src="https://liboran.github.io/post-images/1586776746593.jpg" alt="" loading="lazy"><br>
+说搞就搞。</p>
+<p>先使用pscp将这整个项目文件传输到阿里云服务器。并且在服务器搭建Django环境。</p>
+<p>依旧使用python manage.py runserver 0:8888将Django项目跑起来。</p>
+<p>从浏览器访问服务器的公网地址，端口8888，就能访问这个网站了！！！</p>
+<p>但是如果关闭这个进程，或是直接关闭终端，都会使这个Django项目关闭。。。</p>
+<p><strong>接下来重点到了！</strong><br>
+<img src="https://liboran.github.io/post-images/1586777292969.jpeg" alt="" loading="lazy"><br>
+如果想让Django项目在Ubuntu后台运行，需要这样运行：<br>
+<mark>nohup</mark> python manage.py runserver 0:8888 <mark>&amp;</mark>。</p>
+<p>其中nohup使项目可以在后台运行。“&amp;”可以让项目在SSH连接断开之后依旧连接。</p>
+<p>将这个项目停止的方法是：<br>
+使用<mark>netstat -ap|grep 8888</mark>来找出占用端口8888的进程，然后使用kill命令终止这个进程。</p>
+<p>效果还可以吧。<br>
+<img src="https://liboran.github.io/post-images/1586777749545.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Django学习 （四）]]></title>
         <id>https://liboran.github.io/post/django_4/</id>
@@ -121,7 +149,7 @@ action是处理的页面，也就是https://127.0.0.1:8000<mark>/cal</mark>。</
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Django学习(一)]]></title>
+        <title type="html"><![CDATA[Django学习 (一)]]></title>
         <id>https://liboran.github.io/post/django_1/</id>
         <link href="https://liboran.github.io/post/django_1/">
         </link>
@@ -373,31 +401,6 @@ c.NotebookApp.port = 8888<br>
 <img src="https://liboran.github.io/post-images/1585832421079.png" alt="" loading="lazy"><br>
 <a href="https://github.com/12218/programs/tree/master/KG_Music">本程序的GitHub地址在此处。</a><br>
 本文章中所有程序仅用于学习交流，禁止用于其他用途。如有侵权，请联系本人将侵权内容删除。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[超星学习通搜题程序]]></title>
-        <id>https://liboran.github.io/post/Chaoxing/</id>
-        <link href="https://liboran.github.io/post/Chaoxing/">
-        </link>
-        <updated>2020-04-01T08:01:19.000Z</updated>
-        <summary type="html"><![CDATA[<p>记录一下超星学习通搜题程序的编写过程。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>记录一下超星学习通搜题程序的编写过程。</p>
-<!-- more -->
-<p>现在网络上有很多超星学习通搜题APP，还有搜题公众号。但是其中大部分都会收费，免费的搜题可能会要求关注各种公众号。并且当学习通任务点很多的时候，每次只查询一道题目确实很不方便。故此尝试制作了以下超星学习通搜题程序。<br>
-我首先选择了一个没有搜题数量限制的搜题APP，将APP安装到“夜神模拟器”，通过Fiddler对其进行抓包。很容易就能发现以下的链接就是APP搜题接口。<br>
-<img src="https://liboran.github.io/post-images/1585729244483.png" alt="" loading="lazy"><br>
-分析这个接口，发现若想访问这个接口，需要一个token值。有了此值就可以访问这个接口。经过几次申请，可以发现这个token是不会发生变化的，所以可以直接引用。<br>
-<img src="https://liboran.github.io/post-images/1585729562221.png" alt="" loading="lazy"></p>
-<!-- more -->
-<p>接下来就要从网页中提取题目，将题目一个一个通过接口申请，就能够得到答案。<br>
-由于害怕学习通检测模拟登陆封号，所以使用匹配网页框架源代码的方式获取任务点里面的题目。<br>
-<img src="https://liboran.github.io/post-images/1585729914763.png" alt="" loading="lazy"><br>
-将网页框架源代码使用Beautifulsoup匹配，即可获得这个任务点里面的所有题目。<br>
-<img src="https://liboran.github.io/post-images/1585730186313.png" alt="" loading="lazy"><br>
-将以上过程整合，就可得到超星学习通搜题程序。<br>
-详细代码请看<a href='https://github.com/12218/Chaoxing'>GitHub</a>。</p>
 ]]></content>
     </entry>
 </feed>
