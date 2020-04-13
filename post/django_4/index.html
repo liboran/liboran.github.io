@@ -9,12 +9,12 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-    <link rel="stylesheet" href="/media/css/tags.css">
+    <link rel="stylesheet" href="/media/css/post.css">
     <link rel="stylesheet" href="/media/live2d/css/live2d.css" />
     
 </head>
 <body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
-        <header class="mdui-toolbar mdui-color-pink mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+<header class="mdui-toolbar mdui-color-pink mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
     <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
     <span class="mdui-typo-title">12218</span>
     <div class="mdui-toolbar-spacer"></div>
@@ -22,7 +22,7 @@
     <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
 </header>
 
-        <div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
     <ul class="mdui-list">
         <li class="mdui-subheader">菜单</li>
         
@@ -45,72 +45,66 @@
     </ul>
 </div>
 
-        <br>
-        <div class="mdui-container">
-            <div class="mdui-row mdui-row-gapless">
-                <div class="k-container">
-                    <div class="mdui-row">
-                        
-                        <div class="mdui-col mdui-p-a-1">
-                            <article class="archives-list mdui-shadow-15  mdui-hoverable mdui-color-white ">
-                                <a href="https://liboran.github.io/tag/hloJoPFGZ/">
-                                    <div class="mdui-p-a-2">
-                                        <div class="mdui-typo-headline mdui-text-truncate index-list-title mdui-m-b-3 mdui-text-color-theme">Django</div>
-                                        <div class="mdui-typo-title mdui-m-t-1 mdui-text-color-blue-grey-200">共有4篇文章</div>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                        
-                        <div class="mdui-col mdui-p-a-1">
-                            <article class="archives-list mdui-shadow-15  mdui-hoverable mdui-color-white ">
-                                <a href="https://liboran.github.io/tag/5QThjqcLm3/">
-                                    <div class="mdui-p-a-2">
-                                        <div class="mdui-typo-headline mdui-text-truncate index-list-title mdui-m-b-3 mdui-text-color-theme">python</div>
-                                        <div class="mdui-typo-title mdui-m-t-1 mdui-text-color-blue-grey-200">共有4篇文章</div>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                        
-                        <div class="mdui-col mdui-p-a-1">
-                            <article class="archives-list mdui-shadow-15  mdui-hoverable mdui-color-white ">
-                                <a href="https://liboran.github.io/tag/fPswlkobC/">
-                                    <div class="mdui-p-a-2">
-                                        <div class="mdui-typo-headline mdui-text-truncate index-list-title mdui-m-b-3 mdui-text-color-theme">Linux</div>
-                                        <div class="mdui-typo-title mdui-m-t-1 mdui-text-color-blue-grey-200">共有3篇文章</div>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                        
-                        <div class="mdui-col mdui-p-a-1">
-                            <article class="archives-list mdui-shadow-15  mdui-hoverable mdui-color-white ">
-                                <a href="https://liboran.github.io/tag/P_BkMuOFH/">
-                                    <div class="mdui-p-a-2">
-                                        <div class="mdui-typo-headline mdui-text-truncate index-list-title mdui-m-b-3 mdui-text-color-theme">爬虫</div>
-                                        <div class="mdui-typo-title mdui-m-t-1 mdui-text-color-blue-grey-200">共有2篇文章</div>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                        
-                        <div class="mdui-col mdui-p-a-1">
-                            <article class="archives-list mdui-shadow-15  mdui-hoverable mdui-color-white ">
-                                <a href="https://liboran.github.io/tag/oi_KFC5Cn/">
-                                    <div class="mdui-p-a-2">
-                                        <div class="mdui-typo-headline mdui-text-truncate index-list-title mdui-m-b-3 mdui-text-color-theme">Chaoxing</div>
-                                        <div class="mdui-typo-title mdui-m-t-1 mdui-text-color-blue-grey-200">共有2篇文章</div>
-                                    </div>
-                                </a>
-                            </article>
-                        </div>
-                        
-                    </div>
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title">Django学习 （四）</h1>
+                    <p class="entry-census">发布于 2020-04-13</p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <p>关于图片、js、css无法在Django框架中无法正常显示的问题</p>
+<!-- more -->
+<p>学完了Django的基础中的基础中的基础，可以发现在templates文件夹下是存放html文件的地方。</p>
+<p>故此，Django创建的页面样式主要还是依靠html来展示。</p>
+<p>但是在Django中创建的html网页与普通的网页有很多不一样，其中比较重要的一点就是文件结构。</p>
+<p>我尝试使用一个之前已经下载好的网页模板。这个网页模板有js、css的加载与渲染。但是当我把这个网页文件放入templates文件夹中，启动Django却加载不出图片和动态js。</p>
+<h1 id="解决方法">解决方法</h1>
+<p>从CSDN最终找到了解决方法。</p>
+<p>Django的资源路径和普通的html并不相同。</p>
+<p>普通的html问价中，同文件夹的路径可以这样写。<br>
+<img src="https://liboran.github.io/post-images/1586774118041.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586774129527.png" alt="" loading="lazy"><br>
+但是这样的路径在Django里面却不正确。</p>
+<p>首先创建一个和templates<mark>同级</mark>的文件夹static。</p>
+<p>将图片文件、js文件、css文件放入这个文件夹。并且保证html中路径正确。<br>
+<img src="https://liboran.github.io/post-images/1586774414294.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586774502104.png" alt="" loading="lazy"></p>
+<p><strong>Last but not least！</strong></p>
+<p>在setting.py文件中的末尾，添加如下代码：</p>
+<p><code>STATIC_URL = '/static/'</code><br>
+<code>STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static').replace('\\', '/'), )</code></p>
+<p>这样就可以正常加载出图片、js、css啦！</p>
+
                 </div>
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
+                
+                
+                <a href="https://liboran.github.io/post/django_3/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter">Django学习（三）</div>
+                    </div>
+                </a>
+                
             </div>
         </div>
-        <footer class="mdui-container footer ">
+    </div>
+    <br>
+    
+    <div class="comment"></div>
+</div>
+<footer class="mdui-container footer ">
     <div class="head_card-offset"></div>
     <div class="mdui-row mdui-row-gapless">
         <div class="k-container">
@@ -160,4 +154,23 @@
 
 </body>
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        
+        
+        
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
 </html>

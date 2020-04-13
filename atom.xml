@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-11T13:03:18.790Z</updated>
+    <updated>2020-04-13T10:45:30.177Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[Django学习 （四）]]></title>
+        <id>https://liboran.github.io/post/django_4/</id>
+        <link href="https://liboran.github.io/post/django_4/">
+        </link>
+        <updated>2020-04-13T10:14:44.000Z</updated>
+        <summary type="html"><![CDATA[<p>关于图片、js、css无法在Django框架中无法正常显示的问题</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>关于图片、js、css无法在Django框架中无法正常显示的问题</p>
+<!-- more -->
+<p>学完了Django的基础中的基础中的基础，可以发现在templates文件夹下是存放html文件的地方。</p>
+<p>故此，Django创建的页面样式主要还是依靠html来展示。</p>
+<p>但是在Django中创建的html网页与普通的网页有很多不一样，其中比较重要的一点就是文件结构。</p>
+<p>我尝试使用一个之前已经下载好的网页模板。这个网页模板有js、css的加载与渲染。但是当我把这个网页文件放入templates文件夹中，启动Django却加载不出图片和动态js。</p>
+<h1 id="解决方法">解决方法</h1>
+<p>从CSDN最终找到了解决方法。</p>
+<p>Django的资源路径和普通的html并不相同。</p>
+<p>普通的html问价中，同文件夹的路径可以这样写。<br>
+<img src="https://liboran.github.io/post-images/1586774118041.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586774129527.png" alt="" loading="lazy"><br>
+但是这样的路径在Django里面却不正确。</p>
+<p>首先创建一个和templates<mark>同级</mark>的文件夹static。</p>
+<p>将图片文件、js文件、css文件放入这个文件夹。并且保证html中路径正确。<br>
+<img src="https://liboran.github.io/post-images/1586774414294.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586774502104.png" alt="" loading="lazy"></p>
+<p><strong>Last but not least！</strong></p>
+<p>在setting.py文件中的末尾，添加如下代码：</p>
+<p><code>STATIC_URL = '/static/'</code><br>
+<code>STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static').replace('\\', '/'), )</code></p>
+<p>这样就可以正常加载出图片、js、css啦！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Django学习（三）]]></title>
         <id>https://liboran.github.io/post/django_3/</id>
