@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-13T11:36:17.307Z</updated>
+    <updated>2020-04-16T15:23:21.533Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,844 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[Pandas基础使用]]></title>
+        <id>https://liboran.github.io/post/pandas/</id>
+        <link href="https://liboran.github.io/post/pandas/">
+        </link>
+        <updated>2020-04-16T15:20:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>数据分析神器之二</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>数据分析神器之二</p>
+<!-- more -->
+<h1 id="pandas">Pandas</h1>
+<pre><code class="language-python">import pandas
+import numpy
+</code></pre>
+<h2 id="1-series对象">1 series对象</h2>
+<pre><code class="language-python">a=numpy.array([1,3,5,7,9])
+num=pandas.Series(a,index=['one','three','five','seven','nine'])
+print(num)#一维数组使用Series创建
+</code></pre>
+<pre><code>one      1
+three    3
+five     5
+seven    7
+nine     9
+dtype: int32
+</code></pre>
+<pre><code class="language-python">b=pandas.Series(a)
+print(b)
+</code></pre>
+<pre><code>0    1
+1    3
+2    5
+3    7
+4    9
+dtype: int32
+</code></pre>
+<pre><code class="language-python">c=pandas.Series(data=[100,200,300])
+print(c)
+</code></pre>
+<pre><code>0    100
+1    200
+2    300
+dtype: int64
+</code></pre>
+<pre><code class="language-python">d=pandas.Series([10,20,30,40],index=[1,2,3,4])
+print(d)
+</code></pre>
+<pre><code>1    10
+2    20
+3    30
+4    40
+dtype: int64
+</code></pre>
+<pre><code class="language-python">e=pandas.Series({'one':1,'three':3,'five':5})
+print(e)
+</code></pre>
+<pre><code>one      1
+three    3
+five     5
+dtype: int64
+</code></pre>
+<pre><code class="language-python">print(e.index)
+print(e.values)
+print(e.index[1])
+print(e.values[1])
+</code></pre>
+<pre><code>Index(['one', 'three', 'five'], dtype='object')
+[1 3 5]
+three
+3
+</code></pre>
+<pre><code class="language-python">e.name='Numbers'#series命名，对标签索引的描述
+print(e)
+</code></pre>
+<pre><code>one      1
+three    3
+five     5
+Name: Numbers, dtype: int64
+</code></pre>
+<pre><code class="language-python">e.index.name='English'#标签索引也有name属性
+#e.values.name='Number' 错误，values无此属性
+print(e)
+</code></pre>
+<pre><code>English
+one      1
+three    3
+five     5
+Name: Numbers, dtype: int64
+</code></pre>
+<h2 id="2-dataframe对象">2 DataFrame对象</h2>
+<pre><code class="language-python">f=pandas.DataFrame([['one',1],['two',2],['three',3],['four',4]])
+f#二维数组的创建使用DataFrame
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>one</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>two</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>three</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>four</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-python">f.index=['First','Second','Third','Fourth']#行索引
+f.columns=['English','Number']#列索引
+f
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>English</th>
+      <th>Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First</td>
+      <td>one</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Second</td>
+      <td>two</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Third</td>
+      <td>three</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Fourth</td>
+      <td>four</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-python">f.index.name='Position'
+f.columns.name='Items'#行列索引都有name属性
+f
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Items</th>
+      <th>English</th>
+      <th>Number</th>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First</td>
+      <td>one</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Second</td>
+      <td>two</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Third</td>
+      <td>three</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Fourth</td>
+      <td>four</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-python">dic={'English':['one','two','three','four'],'Number':[1,2,3,4]}
+g=pandas.DataFrame.from_dict(dic)#字典转化为二维数组
+g
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>English</th>
+      <th>Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>one</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>two</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>three</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>four</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-python">h=pandas.DataFrame.from_dict(dic,orient='index')#行列转换
+h#orient另一值为columns，列索引水平位置
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>English</td>
+      <td>one</td>
+      <td>two</td>
+      <td>three</td>
+      <td>four</td>
+    </tr>
+    <tr>
+      <td>Number</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="3-索引对象">3 索引对象</h2>
+<pre><code class="language-python">i=pandas.Series(numpy.random.randn(5))
+print(i)
+i.index
+</code></pre>
+<pre><code>0   -0.262210
+1   -0.817074
+2   -1.302270
+3    0.030391
+4   -0.091137
+dtype: float64
+
+
+
+
+
+RangeIndex(start=0, stop=5, step=1)
+</code></pre>
+<pre><code class="language-python">i.index[i.index&gt;2]#神奇的用法
+</code></pre>
+<pre><code>Int64Index([3, 4], dtype='int64')
+</code></pre>
+<p>索引可进行下表查询、切片、概括</p>
+<pre><code class="language-python">#MultiIndex
+</code></pre>
+<h2 id="4-数据索引和切片">4 数据索引和切片</h2>
+<h3 id="41-serie对象">4.1 Serie对象</h3>
+<pre><code class="language-python">j=pandas.Series({'one':1,'three':3,'five':5,'seven':7})
+j['five']#可多值索引
+</code></pre>
+<pre><code>5
+</code></pre>
+<pre><code class="language-python">j['nine']=9#增加对象
+j
+</code></pre>
+<pre><code>one      1
+three    3
+five     5
+seven    7
+nine     9
+dtype: int64
+</code></pre>
+<h4 id="411-索引管理">4.1.1 索引管理</h4>
+<pre><code class="language-python">j.iloc[1]#标签位置索引
+</code></pre>
+<pre><code>3
+</code></pre>
+<pre><code class="language-python">j.loc['one':'five']#标签切片
+</code></pre>
+<pre><code>one      1
+three    3
+five     5
+dtype: int64
+</code></pre>
+<h2 id="5-分组运算">5 分组运算</h2>
+<pre><code class="language-python">k=pandas.Series(numpy.arange(5))
+print(numpy.sum(k),numpy.mean(k))
+</code></pre>
+<pre><code>10 2.0
+</code></pre>
+<pre><code class="language-python">l=pandas.DataFrame([[10,1],[20,2],[30,3],[40,4]])
+l.sum()#分组求和
+</code></pre>
+<pre><code>0    100
+1     10
+dtype: int64
+</code></pre>
+<pre><code class="language-python">l.sum(axis=1)#axis按照指定轴求和
+</code></pre>
+<pre><code>0    11
+1    22
+2    33
+3    44
+dtype: int64
+</code></pre>
+<pre><code class="language-python">l.describe()#全部信息统计
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>25.000000</td>
+      <td>2.500000</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>12.909944</td>
+      <td>1.290994</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>10.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>17.500000</td>
+      <td>1.750000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>25.000000</td>
+      <td>2.500000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>32.500000</td>
+      <td>3.250000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>40.000000</td>
+      <td>4.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="51-高级分组运算">5.1 高级分组运算</h3>
+<pre><code class="language-python">m=pandas.DataFrame({'subject':['math','physics','english','math','english'],'score':[90,86,57,95,75]})
+m
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>math</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>physics</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>english</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>math</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>english</td>
+      <td>75</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-python">m.groupby('subject').sum()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score</th>
+    </tr>
+    <tr>
+      <th>subject</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>english</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>math</td>
+      <td>185</td>
+    </tr>
+    <tr>
+      <td>physics</td>
+      <td>86</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-python">m.groupby('subject').mean()
+#m.groupby(m['subject']).mean()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score</th>
+    </tr>
+    <tr>
+      <th>subject</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>english</td>
+      <td>66.0</td>
+    </tr>
+    <tr>
+      <td>math</td>
+      <td>92.5</td>
+    </tr>
+    <tr>
+      <td>physics</td>
+      <td>86.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Numpy基础使用]]></title>
+        <id>https://liboran.github.io/post/numpy/</id>
+        <link href="https://liboran.github.io/post/numpy/">
+        </link>
+        <updated>2020-04-16T14:48:29.000Z</updated>
+        <summary type="html"><![CDATA[<p>数据处理利器之一</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>数据处理利器之一</p>
+<!-- more -->
+<p>封面图片来自于<a href='https://www.pixiv.net/artworks/77171026'>Pixiv</a></p>
+<h1 id="numpy的使用">NumPy的使用</h1>
+<pre><code class="language-python">import numpy
+numpy.__version__
+</code></pre>
+<pre><code>'1.16.5'
+</code></pre>
+<h1 id="1-array的创建">1 array的创建</h1>
+<pre><code class="language-python">data=numpy.array([1,2,3,4,5])
+print(data)
+data.dtype#numpy里面的数据类型
+</code></pre>
+<pre><code>[1 2 3 4 5]
+
+
+
+
+
+dtype('int32')
+</code></pre>
+<pre><code class="language-python">new_data=data.astype(numpy.float)#改变array的数据类型
+new_data
+</code></pre>
+<pre><code>array([1., 2., 3., 4., 5.])
+</code></pre>
+<h1 id="2-array的操作">2 array的操作</h1>
+<pre><code class="language-python">a=numpy.array([1,2,3,4,5])
+print(a.shape)#array形状（五行零列）
+print(a.ndim)#array维度
+print(a.size)#array的元素个数
+</code></pre>
+<pre><code>(5,)
+1
+5
+</code></pre>
+<pre><code class="language-python">b=numpy.array([1,2,3,4,5],dtype=float)
+display(b)
+</code></pre>
+<pre><code>array([1., 2., 3., 4., 5.])
+</code></pre>
+<pre><code class="language-python">c=numpy.array([1,2,3,4,5,6,7,8],ndmin=2)#设定array维度为2
+display(c)
+</code></pre>
+<pre><code>array([[1, 2, 3, 4, 5, 6, 7, 8]])
+</code></pre>
+<pre><code class="language-python">d=numpy.zeros((2,10))#创建全为0的array，两行十列
+display(d)
+</code></pre>
+<pre><code>array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]])
+</code></pre>
+<pre><code class="language-python">e=numpy.eye(5,dtype=int,k=2)#2对角线元素为1，五行，int类型
+display(e)
+</code></pre>
+<pre><code>array([[0, 0, 1, 0, 0],
+       [0, 0, 0, 1, 0],
+       [0, 0, 0, 0, 1],
+       [0, 0, 0, 0, 0],
+       [0, 0, 0, 0, 0]])
+</code></pre>
+<h1 id="3-array的等差数列">3 array的等差数列</h1>
+<pre><code class="language-python">f=numpy.arange(1,100,3)#创建1~100公差为3的等差数列
+display(f)
+</code></pre>
+<pre><code>array([ 1,  4,  7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49,
+       52, 55, 58, 61, 64, 67, 70, 73, 76, 79, 82, 85, 88, 91, 94, 97])
+</code></pre>
+<pre><code class="language-python">g=numpy.linspace(2.0,3.0,num=5)#创建2.0~3.0之间的等差数列，数列个数为5
+display(g)
+</code></pre>
+<pre><code>array([2.  , 2.25, 2.5 , 2.75, 3.  ])
+</code></pre>
+<h1 id="4-reshape的使用">4 reshape的使用</h1>
+<pre><code class="language-python">h=numpy.array([1,2,3,4,5,6,7,8])
+display(h.reshape(2,4))#reshape函数改为维度为2行4列
+display(h.reshape(4,2))
+display(h.reshape(-1,2))#未知行数使用-1代替
+</code></pre>
+<pre><code>array([[1, 2, 3, 4],
+       [5, 6, 7, 8]])
+
+
+
+array([[1, 2],
+       [3, 4],
+       [5, 6],
+       [7, 8]])
+
+
+
+array([[1, 2],
+       [3, 4],
+       [5, 6],
+       [7, 8]])
+</code></pre>
+<pre><code class="language-python">display(h[2:5])#切片
+display(h[::-1])
+</code></pre>
+<pre><code>array([3, 4, 5])
+
+
+
+array([8, 7, 6, 5, 4, 3, 2, 1])
+</code></pre>
+<h1 id="5-array的切片">5 array的切片</h1>
+<pre><code class="language-python">i=numpy.arange(0,60,10).reshape(-1,1)
+display(i)
+i=i+numpy.arange(0,6)
+display(i)
+display(i[1:4])#此处切片为1~4行
+</code></pre>
+<pre><code>array([[ 0],
+       [10],
+       [20],
+       [30],
+       [40],
+       [50]])
+
+
+
+array([[ 0,  1,  2,  3,  4,  5],
+       [10, 11, 12, 13, 14, 15],
+       [20, 21, 22, 23, 24, 25],
+       [30, 31, 32, 33, 34, 35],
+       [40, 41, 42, 43, 44, 45],
+       [50, 51, 52, 53, 54, 55]])
+
+
+
+array([[10, 11, 12, 13, 14, 15],
+       [20, 21, 22, 23, 24, 25],
+       [30, 31, 32, 33, 34, 35]])
+</code></pre>
+<h1 id="6-array的转换与合并分割">6 array的转换与合并分割</h1>
+<pre><code class="language-python">display(i.flatten())#转换为一维数组
+</code></pre>
+<pre><code>array([ 0,  1,  2,  3,  4,  5, 10, 11, 12, 13, 14, 15, 20, 21, 22, 23, 24,
+       25, 30, 31, 32, 33, 34, 35, 40, 41, 42, 43, 44, 45, 50, 51, 52, 53,
+       54, 55])
+</code></pre>
+<pre><code class="language-python">j=numpy.arange(9).reshape(3,3)
+k=numpy.arange(12).reshape(3,4)
+l=numpy.arange(15).reshape(3,5)
+display(numpy.hstack((j,k)))#水平合并
+l2=l.T#数组转置
+display(numpy.vstack((j,l2)))#垂直合并
+#numpy.concatenate((j,l2),axis=0)等效上述
+</code></pre>
+<pre><code>array([[ 0,  1,  2,  0,  1,  2,  3],
+       [ 3,  4,  5,  4,  5,  6,  7],
+       [ 6,  7,  8,  8,  9, 10, 11]])
+
+
+
+array([[ 0,  1,  2],
+       [ 3,  4,  5],
+       [ 6,  7,  8],
+       [ 0,  5, 10],
+       [ 1,  6, 11],
+       [ 2,  7, 12],
+       [ 3,  8, 13],
+       [ 4,  9, 14]])
+</code></pre>
+<pre><code class="language-python">m=numpy.arange(24).reshape(4,6)
+display(numpy.split(m,2,axis=1))#按照1轴方向将array分为2组
+#numpy.hsplit(a,2)0轴分割
+#numpy.vsplit(a,2)1轴分割
+</code></pre>
+<pre><code>[array([[ 0,  1,  2],
+        [ 6,  7,  8],
+        [12, 13, 14],
+        [18, 19, 20]]), array([[ 3,  4,  5],
+        [ 9, 10, 11],
+        [15, 16, 17],
+        [21, 22, 23]])]
+</code></pre>
+<h1 id="7-array的计算">7 array的计算</h1>
+<pre><code class="language-python">n=numpy.array([1,3,5,7])
+o=numpy.array([2,4,6,8])
+display(n*3)#&quot;+ - * /&quot;同理
+</code></pre>
+<pre><code>array([ 3,  9, 15, 21])
+</code></pre>
+<pre><code class="language-python">display(n==o)
+display(n.shape==o.shape)
+</code></pre>
+<pre><code>array([False, False, False, False])
+
+
+
+True
+</code></pre>
+<h1 id="8-array的数据处理">8 array的数据处理</h1>
+<pre><code class="language-python">#numpy.mean()平均值
+#numpy.std()计算标准差
+#numpy.min()/numpy.max()计算最小/最大值
+#numpy.percentile()计算百分位在统计对象中的值
+#numpy.median()计算统计对象中值
+#numpy.sum()计算所有对象的和
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Django学习 （五）]]></title>
         <id>https://liboran.github.io/post/django_5/</id>
@@ -348,59 +1186,6 @@ c.NotebookApp.port = 8888<br>
 <h1 id="使用">使用</h1>
 <p>安装成功之后可以使用SSH连接软件与手机上的Linux连接控制。</p>
 <figure data-type="image" tabindex="1"><img src="https://liboran.github.io/post-images/1586020563399.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[超星学习通程序新功能]]></title>
-        <id>https://liboran.github.io/post/Chaoxing_new_1/</id>
-        <link href="https://liboran.github.io/post/Chaoxing_new_1/">
-        </link>
-        <updated>2020-04-03T12:41:57.000Z</updated>
-        <summary type="html"><![CDATA[<p>新增了测试搜题模式</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>新增了测试搜题模式</p>
-<!-- more -->
-<p>今天在做超星学习通测试时，有了新发现😏。<br>
-<img src="https://liboran.github.io/post-images/1585919996157.png" alt="" loading="lazy"><br>
-<img src="https://liboran.github.io/post-images/1585920024353.png" alt="" loading="lazy"><br>
-当查看网页源代码时，发现里面有一个script标签里面有一大堆Unicode编码的字符串。<br>
-<img src="https://liboran.github.io/post-images/1585920048755.png" alt="" loading="lazy"><br>
-从网上随便找一个Unicode编码解码的网站将这一部分解码之后，就能得到里面含有题目和选项的网页源代码。<br>
-<img src="https://liboran.github.io/post-images/1585920058954.png" alt="" loading="lazy"><br>
-仔细观察这一些代码，发现<strong>有一部分</strong>选项里面会有一个“特殊名称”的值“<strong>isanswer</strong>”。<br>
-<img src="https://liboran.github.io/post-images/1585920070570.png" alt="" loading="lazy"><br>
-这个值名称为“isanswer”，值为“true”，很容易让人联想到这会是题目的正确答案😦😦😦。<br>
-后来经过多次做测试、核对答案，可以确定这竟然真的是正确答案。<br>
-所以下一步就把答案部分提取出来就行了。<br>
-使用python的正则表达式就能够很轻易将答案部分匹配出来，就搞定了😎。</p>
-<p>我将新的功能加到了“超星学习通搜题程序”里面，<a href="https://liboran.github.io/post/Chaoxing/">详细内容请看这里</a>。</p>
-<p>下面是程序展示😎。<br>
-<img src="https://liboran.github.io/post-images/1585920684087.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[KG音乐(非VIP)下载]]></title>
-        <id>https://liboran.github.io/post/KG_Music/</id>
-        <link href="https://liboran.github.io/post/KG_Music/">
-        </link>
-        <updated>2020-04-02T12:33:03.000Z</updated>
-        <summary type="html"><![CDATA[<p>写了个小爬虫练一练</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>写了个小爬虫练一练</p>
-<!-- more -->
-<h1 id="制作过程">制作过程</h1>
-<h2 id="接口分析">接口分析</h2>
-<p>在酷狗首页进行抓包分析，当输入需要搜索的歌曲名称搜索时，可找出下图链接，其中包含着搜索到的歌曲的第一页歌曲信息。<br>
-<img src="https://liboran.github.io/post-images/1585832390683.png" alt="" loading="lazy"><br>
-在歌曲播放界面可以找出这个json文件里面有歌曲下载链接，hash值可在上一个链接请求中找到。<br>
-<img src="https://liboran.github.io/post-images/1585832400508.png" alt="" loading="lazy"></p>
-<h1 id="使用方法">使用方法</h1>
-<p>如下图所示：<br>
-<img src="https://liboran.github.io/post-images/1585832411518.png" alt="" loading="lazy"><br>
-下载好的歌曲可在“Download”文件夹中找到。<br>
-<img src="https://liboran.github.io/post-images/1585832421079.png" alt="" loading="lazy"><br>
-<a href="https://github.com/12218/programs/tree/master/KG_Music">本程序的GitHub地址在此处。</a><br>
-本文章中所有程序仅用于学习交流，禁止用于其他用途。如有侵权，请联系本人将侵权内容删除。</p>
 ]]></content>
     </entry>
 </feed>
