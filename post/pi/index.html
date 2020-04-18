@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12218</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="/media/css/post.css">
+    <link rel="stylesheet" href="/media/live2d/css/live2d.css" />
+    
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+<header class="mdui-toolbar mdui-color-pink mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+    <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+    <span class="mdui-typo-title">12218</span>
+    <div class="mdui-toolbar-spacer"></div>
+<!--    <a href="javascript:history.go(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</header>
+
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+    <ul class="mdui-list">
+        <li class="mdui-subheader">菜单</li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/" class="mdui-list-item-content">首页</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/archives" class="mdui-list-item-content">归档</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/tags" class="mdui-list-item-content">标签</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/post/about" class="mdui-list-item-content">关于</a>
+        </li>
+        
+    </ul>
+</div>
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title">树莓派（一）安装系统</h1>
+                    <p class="entry-census">发布于 2020-04-18</p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <p>记录一下，入坑开始</p>
+<!-- more -->
+<h1 id="前言">前言</h1>
+<p>终于狠下心来买了一块树莓派开发板。昨天先是给树莓派安装了系统，入坑开始。<br>
+<img src="https://liboran.github.io/post-images/1587225604095.png" alt="" loading="lazy"></p>
+<h1 id="系统安装过程">系统安装过程</h1>
+<p>1.树莓派的系统安装过程出奇的简单。。。打开<a href='https://www.balena.io/etcher/'>balenaEtcher</a>之后选择镜像、安装位置就行了。<br>
+<img src="https://liboran.github.io/post-images/1587225875726.png" alt="" loading="lazy"><br>
+安装完之后有一个校验的过程。总共大概十分钟就能够安装好。</p>
+<p>2.安装完成之后需要添加配置文件，以便之后可以顺利连接WIFI和SSH。将下图文件放入树莓派安装完成之后的盘里即可。<br>
+<img src="https://liboran.github.io/post-images/1587226319707.png" alt="" loading="lazy"><br>
+其中wpa_supplicant.conf文件是用来配置WIFI的，只要将WIFI名称和密码填入即可。</p>
+<p>3.在电脑浏览器输入<mark>192.168.0.1</mark>，可以进入路由器管理界面，查看连接的设备里面名为raspberrypi的设备，记录下来内网的IP地址。<br>
+<img src="https://liboran.github.io/post-images/1587226669976.jpg" alt="" loading="lazy"></p>
+<p>4.打开Putty，输入刚才记下的IP地址，端口为22，即可进入SSH连接。初始用户名为pi，密码为raspberry。<br>
+<img src="https://liboran.github.io/post-images/1587226800342.png" alt="" loading="lazy"></p>
+<p>5.无图形化界面连接已经完成了，现在要打开VNC。<br>
+在终端输入<mark>sudo raspi-config</mark>，会出现树莓派的基本设置。<br>
+<img src="https://liboran.github.io/post-images/1587226941246.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587226948093.png" alt="" loading="lazy"><br>
+进入第五项，<mark>Interfacing Options</mark>，选择VNC，开启即可。<br>
+<img src="https://liboran.github.io/post-images/1587227030784.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227036712.png" alt="" loading="lazy"></p>
+<p>6.使用VNC Viewer对树莓派进行连接，虽然连接成功，但是只出现了黑框。。。<br>
+<img src="https://liboran.github.io/post-images/1587227140004.png" alt="" loading="lazy"><br>
+这是没有设置分辨率的原因。<br>
+继续在raspi-config里面，进入<mark>Advanced Options</mark>。<br>
+<img src="https://liboran.github.io/post-images/1587227164106.png" alt="" loading="lazy"><br>
+选择A5 Resolution即可对分辨率进行调节。<br>
+<img src="https://liboran.github.io/post-images/1587227289664.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227297432.png" alt="" loading="lazy"></p>
+<p>7.设置好分辨率之后，就能在VNC中顺利打开图形化界面了！<br>
+<img src="https://liboran.github.io/post-images/1587227344806.png" alt="" loading="lazy"></p>
+<h1 id="last-but-not-least">Last But Not Least</h1>
+<p>1.在设置语言的时候应当勾选上“Use US keyboard”。<br>
+<img src="https://liboran.github.io/post-images/1587227442758.png" alt="" loading="lazy"><br>
+2.如果文件管理器打开时闪退（据说很多树莓派都有这个问题。。。），在命令行输入<mark>sudo apt full-upgrade</mark>，等待更新安装完成之后，重启树莓派，就不会闪退了！</p>
+
+                </div>
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
+                
+                
+                <a href="https://liboran.github.io/post/pandas/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter">Pandas基础使用</div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="comment"></div>
+</div>
+<footer class="mdui-container footer ">
+    <div class="head_card-offset"></div>
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <img width="100%" src="/media/img/skirt.png">
+        </div>
+    </div>
+
+    <div class="site-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+</footer>
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+            <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+            <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script>
+    var message_Path = '/media/live2d/';//资源目录，如果目录不对请更改
+    var talkAPI = "";//如果有类似图灵机器人的聊天接口请填写接口路径
+</script>
+<!--<script src="/media/js/jquery-3.3.1.min.js"></script>-->
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/js/message.js"></script>
+
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        
+        
+        
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
+</html>

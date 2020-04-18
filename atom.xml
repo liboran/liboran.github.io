@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liboran.github.io</id>
     <title>12218</title>
-    <updated>2020-04-17T07:32:28.569Z</updated>
+    <updated>2020-04-18T16:49:26.426Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liboran.github.io"/>
     <link rel="self" href="https://liboran.github.io/atom.xml"/>
@@ -10,6 +10,53 @@
     <logo>https://liboran.github.io/images/avatar.png</logo>
     <icon>https://liboran.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 12218</rights>
+    <entry>
+        <title type="html"><![CDATA[树莓派（一）安装系统]]></title>
+        <id>https://liboran.github.io/post/pi/</id>
+        <link href="https://liboran.github.io/post/pi/">
+        </link>
+        <updated>2020-04-18T15:55:44.000Z</updated>
+        <summary type="html"><![CDATA[<p>记录一下，入坑开始</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>记录一下，入坑开始</p>
+<!-- more -->
+<h1 id="前言">前言</h1>
+<p>终于狠下心来买了一块树莓派开发板。昨天先是给树莓派安装了系统，入坑开始。<br>
+<img src="https://liboran.github.io/post-images/1587225604095.png" alt="" loading="lazy"></p>
+<h1 id="系统安装过程">系统安装过程</h1>
+<p>1.树莓派的系统安装过程出奇的简单。。。打开<a href='https://www.balena.io/etcher/'>balenaEtcher</a>之后选择镜像、安装位置就行了。<br>
+<img src="https://liboran.github.io/post-images/1587225875726.png" alt="" loading="lazy"><br>
+安装完之后有一个校验的过程。总共大概十分钟就能够安装好。</p>
+<p>2.安装完成之后需要添加配置文件，以便之后可以顺利连接WIFI和SSH。将下图文件放入树莓派安装完成之后的盘里即可。<br>
+<img src="https://liboran.github.io/post-images/1587226319707.png" alt="" loading="lazy"><br>
+其中wpa_supplicant.conf文件是用来配置WIFI的，只要将WIFI名称和密码填入即可。</p>
+<p>3.在电脑浏览器输入<mark>192.168.0.1</mark>，可以进入路由器管理界面，查看连接的设备里面名为raspberrypi的设备，记录下来内网的IP地址。<br>
+<img src="https://liboran.github.io/post-images/1587226669976.jpg" alt="" loading="lazy"></p>
+<p>4.打开Putty，输入刚才记下的IP地址，端口为22，即可进入SSH连接。初始用户名为pi，密码为raspberry。<br>
+<img src="https://liboran.github.io/post-images/1587226800342.png" alt="" loading="lazy"></p>
+<p>5.无图形化界面连接已经完成了，现在要打开VNC。<br>
+在终端输入<mark>sudo raspi-config</mark>，会出现树莓派的基本设置。<br>
+<img src="https://liboran.github.io/post-images/1587226941246.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587226948093.png" alt="" loading="lazy"><br>
+进入第五项，<mark>Interfacing Options</mark>，选择VNC，开启即可。<br>
+<img src="https://liboran.github.io/post-images/1587227030784.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227036712.png" alt="" loading="lazy"></p>
+<p>6.使用VNC Viewer对树莓派进行连接，虽然连接成功，但是只出现了黑框。。。<br>
+<img src="https://liboran.github.io/post-images/1587227140004.png" alt="" loading="lazy"><br>
+这是没有设置分辨率的原因。<br>
+继续在raspi-config里面，进入<mark>Advanced Options</mark>。<br>
+<img src="https://liboran.github.io/post-images/1587227164106.png" alt="" loading="lazy"><br>
+选择A5 Resolution即可对分辨率进行调节。<br>
+<img src="https://liboran.github.io/post-images/1587227289664.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227297432.png" alt="" loading="lazy"></p>
+<p>7.设置好分辨率之后，就能在VNC中顺利打开图形化界面了！<br>
+<img src="https://liboran.github.io/post-images/1587227344806.png" alt="" loading="lazy"></p>
+<h1 id="last-but-not-least">Last But Not Least</h1>
+<p>1.在设置语言的时候应当勾选上“Use US keyboard”。<br>
+<img src="https://liboran.github.io/post-images/1587227442758.png" alt="" loading="lazy"><br>
+2.如果文件管理器打开时闪退（据说很多树莓派都有这个问题。。。），在命令行输入<mark>sudo apt full-upgrade</mark>，等待更新安装完成之后，重启树莓派，就不会闪退了！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Pandas基础使用]]></title>
         <id>https://liboran.github.io/post/pandas/</id>
@@ -1126,66 +1173,6 @@ c.NotebookApp.port = 8888<br>
 <p>第一次连接，需要输入密码，就是刚才自己设置的那个。</p>
 <p>之后就能打开Jupyter Notebook啦！<br>
 <img src="https://liboran.github.io/post-images/1586058826997.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[使用Linux Deploy在手机安装Ubuntu]]></title>
-        <id>https://liboran.github.io/post/linux-deploy/</id>
-        <link href="https://liboran.github.io/post/linux-deploy/">
-        </link>
-        <updated>2020-04-04T15:55:59.000Z</updated>
-        <summary type="html"><![CDATA[<p>记录一下Linux Deploy的使用方法</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>记录一下Linux Deploy的使用方法</p>
-<!-- more -->
-<h1 id="前言">前言</h1>
-<p>其实很早之前就搞过Linux Deploy，当时弄了很久才弄成功。但是当时并没有记笔记的习惯，今天才发现<strong>竟然忘了怎么做了</strong>...<br>
-今天只好“重操旧业”，竟然弄了一下午，安装了五六回才搞成。<br>
-<img src="https://liboran.github.io/post-images/1586016463867.gif" alt="" loading="lazy"><br>
-这回一定要记录下来，以免以后重复掉坑。</p>
-<h1 id="准备">准备</h1>
-<p>需要的软件和工具有旧手机一部、<a href='https://github.com/meefik/linuxdeploy/releases'>Linux Deploy</a>(最好版本对应)、BusyBox Free、KingRoot(这个随意，只要能够root手机就可以)。<br>
-<img src="https://liboran.github.io/post-images/1586017179881.jpeg" alt="" loading="lazy"></p>
-<h1 id="安装过程">安装过程</h1>
-<h2 id="1root手机">1.root手机</h2>
-<p>我是使用KingRoot这款APP将手机root的，root手机的方式很多，<a href='https://baidu.com'>百度一下，你就知道</a>。这是我把手机root好之后的图片，我是使用的华为荣耀6Plus。<br>
-<img src="https://liboran.github.io/post-images/1586017532433.jpeg" alt="" loading="lazy"></p>
-<h2 id="2安装busybox">2.安装BusyBox</h2>
-<p>BusyBox这个APP的作用是扩展Linux命令，安装的时候只需要把安装目录改成“/system/xbin”即可，然后点击“Install”就行啦。<br>
-<img src="https://liboran.github.io/post-images/1586017729360.jpeg" alt="" loading="lazy"></p>
-<h2 id="3使用linux-deploy部署linux系统"><strong>3.使用Linux Deploy部署Linux系统</strong></h2>
-<p>（1）打开Linux Deploy，先点击左上角的三道杠，点击“<strong>设置</strong>”。</p>
-<p>（2）勾选上“<strong>CPU唤醒</strong>”，这样在熄屏时也能保持运行状态（如下图）。<br>
-<img src="https://liboran.github.io/post-images/1586018044271.jpeg" alt="" loading="lazy"><br>
-将“<strong>PATH变量</strong>”更改为“<strong>/system/xbin</strong>”，同BusyBox的安装目录。<br>
-并且勾选上“<strong>启用CLI</strong>”（如下图）。<br>
-<img src="https://liboran.github.io/post-images/1586018342163.jpeg" alt="" loading="lazy"><br>
-（3）返回主界面，点击右下角难以名状的一个图标，开始修改Linux的属性。</p>
-<p><strong>发行版GUN/Linux</strong>默认为Debian，在这里我改成了<strong>Ubuntu</strong>。</p>
-<p>架构保持默认即可。</p>
-<p><strong>发行版GUN/Linux版本</strong>改为<strong>bionic</strong>。</p>
-<p>源地址一定要记得更改！！！否则会下载得慢的离谱...<br>
-我把源地址改成了清华大学镜像网站的源，速度会很快（源地址：http://tuna.tsinghua.edu.cn/ubuntu-ports）。</p>
-<p><strong>安装路径</strong>改为“/mnt/sdcard/linux/linux.img”，否则可能会出错。</p>
-<p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586018854829.jpeg" alt="" loading="lazy"></p>
-<p>我这里把<strong>镜像大小</strong>改成了3072，这个值请根据自己手机情况自行判断。</p>
-<p><strong>文件系统</strong>改成“<strong>ext4</strong>”。</p>
-<p><strong>用户名</strong>以及<strong>用户密码</strong>自行定义即可，之后登陆会用到。</p>
-<p><strong>本地化</strong>是选择语言，我这里改用“<strong>zh_CN.UTF-8</strong>”。</p>
-<p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586021552095.png" alt="" loading="lazy"></p>
-<p>将挂载下的<strong>启用</strong>勾选上，并且在<strong>挂载点列表</strong>中添加挂载点“<strong>/system/</strong>”。这是让Linux系统和手机共享目录。</p>
-<p>一定要勾选上<strong>SSH</strong>下的<strong>启用</strong>！！！否则无法使用SSH对Ubuntu进行连接。</p>
-<p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586019676938.jpeg" alt="" loading="lazy"></p>
-<p>最后如果想安装图形界面，可以勾选上，然后使用“VNC Viewer”之类的软件连接。</p>
-<p>（4）属性设置好之后回到主界面，点击右上角的三个点，点击“安装”，Linux Deploy就会开始安装Ubuntu系统啦，用的时间会很长，需要耐心等待。当出现“<strong>&lt;&lt;&lt;deploy</strong>”时，说明安装完成了。</p>
-<p><code>如果在安装过程中Linux Deploy卡在了某一环节，可以点击屏幕下方的“停止”，当出现“&lt;&lt;&lt;stop”之后，再次点击“安装”就行了。</code></p>
-<p>如果安装完成之后，点击“启动”，出现了“Starting extra/ssh ... done”说明安装成功了。</p>
-<h1 id="使用">使用</h1>
-<p>安装成功之后可以使用SSH连接软件与手机上的Linux连接控制。</p>
-<figure data-type="image" tabindex="1"><img src="https://liboran.github.io/post-images/1586020563399.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
