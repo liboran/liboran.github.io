@@ -60,25 +60,25 @@
 <h1 id="前言">前言</h1>
 <p>其实很早之前就搞过Linux Deploy，当时弄了很久才弄成功。但是当时并没有记笔记的习惯，今天才发现<strong>竟然忘了怎么做了</strong>...<br>
 今天只好“重操旧业”，竟然弄了一下午，安装了五六回才搞成。<br>
-<img src="https://liboran.github.io/post-images/1586016463867.gif" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586016463867.gif" alt="" loading="lazy"><br>
 这回一定要记录下来，以免以后重复掉坑。</p>
 <h1 id="准备">准备</h1>
 <p>需要的软件和工具有旧手机一部、<a href='https://github.com/meefik/linuxdeploy/releases'>Linux Deploy</a>(最好版本对应)、BusyBox Free、KingRoot(这个随意，只要能够root手机就可以)。<br>
-<img src="https://liboran.github.io/post-images/1586017179881.jpeg" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586017179881.jpeg" alt="" loading="lazy"></p>
 <h1 id="安装过程">安装过程</h1>
 <h2 id="1root手机">1.root手机</h2>
 <p>我是使用KingRoot这款APP将手机root的，root手机的方式很多，<a href='https://baidu.com'>百度一下，你就知道</a>。这是我把手机root好之后的图片，我是使用的华为荣耀6Plus。<br>
-<img src="https://liboran.github.io/post-images/1586017532433.jpeg" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586017532433.jpeg" alt="" loading="lazy"></p>
 <h2 id="2安装busybox">2.安装BusyBox</h2>
 <p>BusyBox这个APP的作用是扩展Linux命令，安装的时候只需要把安装目录改成“/system/xbin”即可，然后点击“Install”就行啦。<br>
-<img src="https://liboran.github.io/post-images/1586017729360.jpeg" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586017729360.jpeg" alt="" loading="lazy"></p>
 <h2 id="3使用linux-deploy部署linux系统"><strong>3.使用Linux Deploy部署Linux系统</strong></h2>
 <p>（1）打开Linux Deploy，先点击左上角的三道杠，点击“<strong>设置</strong>”。</p>
 <p>（2）勾选上“<strong>CPU唤醒</strong>”，这样在熄屏时也能保持运行状态（如下图）。<br>
-<img src="https://liboran.github.io/post-images/1586018044271.jpeg" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586018044271.jpeg" alt="" loading="lazy"><br>
 将“<strong>PATH变量</strong>”更改为“<strong>/system/xbin</strong>”，同BusyBox的安装目录。<br>
 并且勾选上“<strong>启用CLI</strong>”（如下图）。<br>
-<img src="https://liboran.github.io/post-images/1586018342163.jpeg" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586018342163.jpeg" alt="" loading="lazy"><br>
 （3）返回主界面，点击右下角难以名状的一个图标，开始修改Linux的属性。</p>
 <p><strong>发行版GUN/Linux</strong>默认为Debian，在这里我改成了<strong>Ubuntu</strong>。</p>
 <p>架构保持默认即可。</p>
@@ -87,24 +87,24 @@
 我把源地址改成了清华大学镜像网站的源，速度会很快（源地址：http://tuna.tsinghua.edu.cn/ubuntu-ports）。</p>
 <p><strong>安装路径</strong>改为“/mnt/sdcard/linux/linux.img”，否则可能会出错。</p>
 <p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586018854829.jpeg" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586018854829.jpeg" alt="" loading="lazy"></p>
 <p>我这里把<strong>镜像大小</strong>改成了3072，这个值请根据自己手机情况自行判断。</p>
 <p><strong>文件系统</strong>改成“<strong>ext4</strong>”。</p>
 <p><strong>用户名</strong>以及<strong>用户密码</strong>自行定义即可，之后登陆会用到。</p>
 <p><strong>本地化</strong>是选择语言，我这里改用“<strong>zh_CN.UTF-8</strong>”。</p>
 <p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586021552095.png" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586021552095.png" alt="" loading="lazy"></p>
 <p>将挂载下的<strong>启用</strong>勾选上，并且在<strong>挂载点列表</strong>中添加挂载点“<strong>/system/</strong>”。这是让Linux系统和手机共享目录。</p>
 <p>一定要勾选上<strong>SSH</strong>下的<strong>启用</strong>！！！否则无法使用SSH对Ubuntu进行连接。</p>
 <p>如下图：<br>
-<img src="https://liboran.github.io/post-images/1586019676938.jpeg" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586019676938.jpeg" alt="" loading="lazy"></p>
 <p>最后如果想安装图形界面，可以勾选上，然后使用“VNC Viewer”之类的软件连接。</p>
 <p>（4）属性设置好之后回到主界面，点击右上角的三个点，点击“安装”，Linux Deploy就会开始安装Ubuntu系统啦，用的时间会很长，需要耐心等待。当出现“<strong>&lt;&lt;&lt;deploy</strong>”时，说明安装完成了。</p>
 <p><code>如果在安装过程中Linux Deploy卡在了某一环节，可以点击屏幕下方的“停止”，当出现“&lt;&lt;&lt;stop”之后，再次点击“安装”就行了。</code></p>
 <p>如果安装完成之后，点击“启动”，出现了“Starting extra/ssh ... done”说明安装成功了。</p>
 <h1 id="使用">使用</h1>
 <p>安装成功之后可以使用SSH连接软件与手机上的Linux连接控制。</p>
-<figure data-type="image" tabindex="1"><img src="https://liboran.github.io/post-images/1586020563399.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://u4hxlt.coding-pages.com/post-images/1586020563399.jpg" alt="" loading="lazy"></figure>
 
                 </div>
             </article>
@@ -114,7 +114,7 @@
         <div class="mdui-container">
             <div class="mdui-row">
                 
-                <a href="https://liboran.github.io/post/remote-jupyter/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                <a href="https://u4hxlt.coding-pages.com/post/remote-jupyter/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_back</i>
                         <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
@@ -123,7 +123,7 @@
                 </a>
                 
                 
-                <a href="https://liboran.github.io/post/Chaoxing_new_1/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://u4hxlt.coding-pages.com/post/Chaoxing_new_1/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>

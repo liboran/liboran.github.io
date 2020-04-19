@@ -59,10 +59,10 @@
 <!-- more -->
 <p>已经可以打开页面之后，接下来就要开始考虑网站前端后端的连接问题了。</p>
 <p>连接之后，前端提交数据之后，穿给后端，后端使用python进行数据的处理计算。<br>
-<img src="https://liboran.github.io/post-images/1586605935242.jpeg" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586605935242.jpeg" alt="" loading="lazy"></p>
 <h1 id="1创建计算页面">1.创建计算页面</h1>
 <p>先创建一个计算页面，即在templates文件夹中创建一个cal.html文件。文件如下：<br>
-<img src="https://liboran.github.io/post-images/1586606057365.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586606057365.png" alt="" loading="lazy"><br>
 将第一个输入的值命名为valueA，另一个为valueB。</p>
 <p>其中<mark>form method=&quot;POST&quot; action=&quot;/cal&quot;</mark>这一句很重要！！！<br>
 method为请求方法，这里需要提交数据，故此设为<strong>POST</strong>。<br>
@@ -70,31 +70,31 @@ action是处理的页面，也就是https://127.0.0.1:8000<mark>/cal</mark>。</
 <p>Django本身有防止非法跨域请求的功能，所以要加上:<mark>{% csrf_token %}</mark>。<br>
 这样就可以避免非法跨域请求的问题了。至于为什么，等我学学前端再回来写上吧。。。</p>
 <p>同样的，需要在views.py文件里面加上返回，在urls.py文件里面设置url。<br>
-<img src="https://liboran.github.io/post-images/1586607067316.png" alt="" loading="lazy"><br>
-<img src="https://liboran.github.io/post-images/1586607221332.png" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586607067316.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586607221332.png" alt="" loading="lazy"></p>
 <h1 id="2创建后端计算">2.创建后端计算</h1>
 <p>前端输入的数字，需要后端来接收、处理。故此在<strong>views.py</strong>文件中加上。<br>
-<img src="https://liboran.github.io/post-images/1586607626229.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586607626229.png" alt="" loading="lazy"><br>
 返回给前端的数据需要使用<strong>字典</strong>类型。</p>
 <p>上面图片中红框部分为将输入数据以及计算结果放入数据库。需要在models.py文件中添加方法。<br>
-<img src="https://liboran.github.io/post-images/1586607812205.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586607812205.png" alt="" loading="lazy"><br>
 并且要在views.py文件中导入。<br>
-<img src="https://liboran.github.io/post-images/1586607922585.png" alt="" loading="lazy"></p>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586607922585.png" alt="" loading="lazy"></p>
 <h1 id="3创建结果页面">3.创建结果页面</h1>
 <p>计算的结果要呈现到网页中，故此在templates文件夹中创建一个<strong>result.html</strong>文件。<br>
-<img src="https://liboran.github.io/post-images/1586607438769.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586607438769.png" alt="" loading="lazy"><br>
 这里的data是后端传过来的数据。即在views.py里面返回的data键值对。</p>
 <h1 id="成果">成果</h1>
 <p>看一下接下来的成果吧，刚才写上面过程那段已经越写越懵了。。。<br>
-<img src="https://liboran.github.io/post-images/1586608211651.png" alt="" loading="lazy"><br>
-<img src="https://liboran.github.io/post-images/1586608217763.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586608211651.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586608217763.png" alt="" loading="lazy"><br>
 第一次搞这种东西，刚开始的时候懂了，结果写这篇文章的时候依旧懵逼。。。还得熟悉一下。。。</p>
 <h1 id="踩坑">踩坑</h1>
 <p>1.我的社区版的pycharm刚打开的时候，并没有database，需要安装插件。</p>
 <p>安装过程：https://blog.csdn.net/qq_44507335/article/details/88356376</p>
 <p>2.数据库的使用。。。大三才开始学。。。先说一点应付一下吧。<br>
-<img src="https://liboran.github.io/post-images/1586608810844.png" alt="" loading="lazy"><br>
-<img src="https://liboran.github.io/post-images/1586609429714.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586608810844.png" alt="" loading="lazy"><br>
+<img src="https://u4hxlt.coding-pages.com/post-images/1586609429714.png" alt="" loading="lazy"><br>
 3.这里数据库可能会出现“database is locked”的错误。这是因为数据库只能有一个写者。（前几天操作系统刚刚将“读者-写者问题”，今天就出bug了。。。）</p>
 <p>也没看到很好的解决方法，重启pycharm就能够解决了。。。（重启大法好！）</p>
 
@@ -106,7 +106,7 @@ action是处理的页面，也就是https://127.0.0.1:8000<mark>/cal</mark>。</
         <div class="mdui-container">
             <div class="mdui-row">
                 
-                <a href="https://liboran.github.io/post/django_4/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                <a href="https://u4hxlt.coding-pages.com/post/django_4/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_back</i>
                         <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
@@ -115,7 +115,7 @@ action是处理的页面，也就是https://127.0.0.1:8000<mark>/cal</mark>。</
                 </a>
                 
                 
-                <a href="https://liboran.github.io/post/django_2/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://u4hxlt.coding-pages.com/post/django_2/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>
