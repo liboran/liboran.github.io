@@ -58,21 +58,21 @@
                     <p>谈一谈怎么把Django项目部署到服务器（歪门邪道警告）</p>
 <!-- more -->
 <p>在学习Django的这几天，每当看到Django的项目可以在127.0.0.1:8000跑起来，都会想到如果这个项目运行在云服务器会是怎样，不久成为一个网站了吗？<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586776746593.jpg" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586776746593.jpg" alt="" loading="lazy"><br>
 说搞就搞。</p>
 <p>先使用pscp将这整个项目文件传输到阿里云服务器。并且在服务器搭建Django环境。</p>
 <p>依旧使用python manage.py runserver 0:8888将Django项目跑起来。</p>
 <p>从浏览器访问服务器的公网地址，端口8888，就能访问这个网站了！！！</p>
 <p>但是如果关闭这个进程，或是直接关闭终端，都会使这个Django项目关闭。。。</p>
 <p><strong>接下来重点到了！</strong><br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586777292969.jpeg" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586777292969.jpeg" alt="" loading="lazy"><br>
 如果想让Django项目在Ubuntu后台运行，需要这样运行：<br>
 <mark>nohup</mark> python manage.py runserver 0:8888 <mark>&amp;</mark>。</p>
 <p>其中nohup使项目可以在后台运行。“&amp;”可以让项目在SSH连接断开之后依旧连接。</p>
 <p>将这个项目停止的方法是：<br>
 使用<mark>netstat -ap|grep 8888</mark>来找出占用端口8888的进程，然后使用kill命令终止这个进程。</p>
 <p>效果还可以吧。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586777749545.png" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1586777749545.png" alt="" loading="lazy"></p>
 
                 </div>
             </article>
@@ -82,7 +82,7 @@
         <div class="mdui-container">
             <div class="mdui-row">
                 
-                <a href="https://u4hxlt.coding-pages.com/post/numpy/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                <a href="https://liboran.github.io/post/numpy/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_back</i>
                         <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
@@ -91,7 +91,7 @@
                 </a>
                 
                 
-                <a href="https://u4hxlt.coding-pages.com/post/django_4/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://liboran.github.io/post/django_4/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>

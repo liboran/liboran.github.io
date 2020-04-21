@@ -66,27 +66,27 @@
 <p>如果安装完之后，输入“jupyter notebook”，可以正常启动，就算是安装成功了。</p>
 <h1 id="开始配置远程连接">开始配置远程连接</h1>
 <p>1.在终端输入“<strong>jupyter notebook --generate-config --allow-root</strong>”，就能生成Jupyter Notebook的配置文件。这个配置文件在“~/.jupyter/”文件夹内。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586057330980.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586057330980.png" alt="" loading="lazy"><br>
 2.在终端输入“ipython”，打开ipython。</p>
 <p>在打开的ipython中输入“<strong>from notebook.auth import passwd</strong>”，之后再输入“<strong>passwd()</strong>”，之后会提示要输入密码，这个密码是远程连接时的登陆密码。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586057600578.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586057600578.png" alt="" loading="lazy"><br>
 将生成的“sha1:……”这串文字复制保存下来，这是密码的hash值。</p>
 <p>3.使用cd命令切换到“~/.jupyter/”文件夹内，输入“<strong>vim jupyter_notebook_config.py</strong>”,开始配置远程连接。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586057882118.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586057882118.png" alt="" loading="lazy"><br>
 对配置文件里面的以下值做出修改：</p>
 <p>（1）允许用户root运行：<br>
 c.NotebookApp.allow_root =True<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586058402773.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586058402773.png" alt="" loading="lazy"><br>
 （2）修改服务监听地址：<br>
 c.NotebookApp.ip = '*'<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586058411599.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586058411599.png" alt="" loading="lazy"><br>
 （3）是否打开浏览器：<br>
 c.NotebookApp.open_browser = False</p>
 <p>（4）hash值（将生成的“sha1:……”填入）：<br>
 c.NotebookApp.password = 'sha1:……'</p>
 <p>（5）服务监听的端口：<br>
 c.NotebookApp.port = 8888<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586058548376.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1586058548376.png" alt="" loading="lazy"><br>
 注意要去掉前面的“#”。</p>
 <p>这就行啦！</p>
 <h1 id="使用过程">使用过程</h1>
@@ -94,7 +94,7 @@ c.NotebookApp.port = 8888<br>
 <p>在浏览器输入“ip地址:端口号”,例如：192.168.0.10:8888。</p>
 <p>第一次连接，需要输入密码，就是刚才自己设置的那个。</p>
 <p>之后就能打开Jupyter Notebook啦！<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1586058826997.png" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1586058826997.png" alt="" loading="lazy"></p>
 
                 </div>
             </article>
@@ -104,7 +104,7 @@ c.NotebookApp.port = 8888<br>
         <div class="mdui-container">
             <div class="mdui-row">
                 
-                <a href="https://u4hxlt.coding-pages.com/post/pscp/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                <a href="https://liboran.github.io/post/pscp/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_back</i>
                         <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
@@ -113,7 +113,7 @@ c.NotebookApp.port = 8888<br>
                 </a>
                 
                 
-                <a href="https://u4hxlt.coding-pages.com/post/linux-deploy/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://liboran.github.io/post/linux-deploy/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>

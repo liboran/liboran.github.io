@@ -59,38 +59,38 @@
 <!-- more -->
 <h1 id="前言">前言</h1>
 <p>终于狠下心来买了一块树莓派开发板。昨天先是给树莓派安装了系统，入坑开始。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587225604095.png" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1587225604095.png" alt="" loading="lazy"></p>
 <h1 id="系统安装过程">系统安装过程</h1>
 <p>1.树莓派的系统安装过程出奇的简单。。。打开<a href='https://www.balena.io/etcher/'>balenaEtcher</a>之后选择镜像、安装位置就行了。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587225875726.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587225875726.png" alt="" loading="lazy"><br>
 安装完之后有一个校验的过程。总共大概十分钟就能够安装好。</p>
 <p>2.安装完成之后需要添加配置文件，以便之后可以顺利连接WIFI和SSH。将下图文件放入树莓派安装完成之后的盘里即可。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587226319707.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587226319707.png" alt="" loading="lazy"><br>
 其中wpa_supplicant.conf文件是用来配置WIFI的，只要将WIFI名称和密码填入即可。</p>
 <p>3.在电脑浏览器输入<mark>192.168.0.1</mark>，可以进入路由器管理界面，查看连接的设备里面名为raspberrypi的设备，记录下来内网的IP地址。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587226669976.jpg" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1587226669976.jpg" alt="" loading="lazy"></p>
 <p>4.打开Putty，输入刚才记下的IP地址，端口为22，即可进入SSH连接。初始用户名为pi，密码为raspberry。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587226800342.png" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1587226800342.png" alt="" loading="lazy"></p>
 <p>5.无图形化界面连接已经完成了，现在要打开VNC。<br>
 在终端输入<mark>sudo raspi-config</mark>，会出现树莓派的基本设置。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587226941246.png" alt="" loading="lazy"><br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587226948093.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587226941246.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587226948093.png" alt="" loading="lazy"><br>
 进入第五项，<mark>Interfacing Options</mark>，选择VNC，开启即可。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227030784.png" alt="" loading="lazy"><br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227036712.png" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1587227030784.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227036712.png" alt="" loading="lazy"></p>
 <p>6.使用VNC Viewer对树莓派进行连接，虽然连接成功，但是只出现了黑框。。。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227140004.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227140004.png" alt="" loading="lazy"><br>
 这是没有设置分辨率的原因。<br>
 继续在raspi-config里面，进入<mark>Advanced Options</mark>。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227164106.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227164106.png" alt="" loading="lazy"><br>
 选择A5 Resolution即可对分辨率进行调节。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227289664.png" alt="" loading="lazy"><br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227297432.png" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1587227289664.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227297432.png" alt="" loading="lazy"></p>
 <p>7.设置好分辨率之后，就能在VNC中顺利打开图形化界面了！<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227344806.png" alt="" loading="lazy"></p>
+<img src="https://liboran.github.io/post-images/1587227344806.png" alt="" loading="lazy"></p>
 <h1 id="last-but-not-least">Last But Not Least</h1>
 <p>1.在设置语言的时候应当勾选上“Use US keyboard”。<br>
-<img src="https://u4hxlt.coding-pages.com/post-images/1587227442758.png" alt="" loading="lazy"><br>
+<img src="https://liboran.github.io/post-images/1587227442758.png" alt="" loading="lazy"><br>
 2.如果文件管理器打开时闪退（据说很多树莓派都有这个问题。。。），在命令行输入<mark>sudo apt full-upgrade</mark>，等待更新安装完成之后，重启树莓派，就不会闪退了！</p>
 
                 </div>
@@ -104,7 +104,7 @@
                 <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
                 
                 
-                <a href="https://u4hxlt.coding-pages.com/post/pandas/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://liboran.github.io/post/pandas/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>
