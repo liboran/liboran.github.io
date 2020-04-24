@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12218</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <link rel="stylesheet" href="/media/css/post.css">
+    <link rel="stylesheet" href="/media/live2d/css/live2d.css" />
+    
+</head>
+<body class=" mdui-appbar-with-toolbar  mdui-theme-primary-pink mdui-theme-accent-pink">
+<header class="mdui-toolbar mdui-color-pink mdui-appbar-fixed mdui-appbar-scroll-toolbar-hide" style="z-index: 1000">
+    <a href="javascript:;" mdui-drawer="{target: '#left-drawer',overlay:true}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+    <span class="mdui-typo-title">12218</span>
+    <div class="mdui-toolbar-spacer"></div>
+<!--    <a href="javascript:history.go(0);" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</header>
+
+<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+    <ul class="mdui-list">
+        <li class="mdui-subheader">菜单</li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/" class="mdui-list-item-content">首页</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/archives" class="mdui-list-item-content">归档</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/tags" class="mdui-list-item-content">标签</a>
+        </li>
+        
+        <li class="mdui-list-item mdui-ripple">
+            <a href="/post/about" class="mdui-list-item-content">关于</a>
+        </li>
+        
+    </ul>
+</div>
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
+                <header class="entry-header">
+                    <h1 class="entry-title">操作系统第三章</h1>
+                    <p class="entry-census">发布于 2020-04-24</p>
+                    <hr>
+                </header>
+                <div class="neko">
+                    <p>处理机调度与死锁</p>
+<!-- more -->
+<h1 id="处理机调度与死锁">处理机调度与死锁</h1>
+<h2 id="调度层次">调度层次</h2>
+<p>处理机调度算法目标<br>
+资源利用率<br>
+公平性<br>
+平衡性<br>
+策略强制执行</p>
+<h3 id="高级调度">高级调度</h3>
+<p>又称作业调度<br>
+仅限批处理系统<br>
+过程：选择作业，创建进程，分配资源，插入队列</p>
+<ul>
+<li>
+<p>主要任务</p>
+<ul>
+<li>1.判断接纳多少作业</li>
+<li>2.判断接纳哪些作业</li>
+</ul>
+</li>
+<li>
+<p>主要算法</p>
+<ul>
+<li>
+<p>先来先服务算法(FCFS)</p>
+<ul>
+<li>
+<p>特点</p>
+<ul>
+<li>有利于长作业，不利于短作业</li>
+<li>有利于CPU繁忙型作业，不利于I/O型作业</li>
+<li>作业平均等待时间长</li>
+<li>吞吐量不高</li>
+</ul>
+</li>
+<li>
+<p>性能衡量标准</p>
+<ul>
+<li>
+<p>平均周转时间</p>
+<p>周转时间=完成时间-到达时间</p>
+</li>
+<li>
+<p>平均带权周转时间</p>
+<p>带权周转时间=周转时间/运行时间</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>短作业(进程)优先调度算法(SJF)</p>
+<ul>
+<li>
+<p>特点</p>
+<ul>
+<li>有效降低平均等待时间</li>
+<li>提高系统吞吐量</li>
+<li>对长作业不利</li>
+<li>未考虑到作业紧迫程度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>优先级调度算法</p>
+<ul>
+<li>
+<p>特点</p>
+<ul>
+<li>基于作业紧迫程度进行调度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>高相应比优先调度算法</p>
+<ul>
+<li>
+<p>特点</p>
+<ul>
+<li>优先权可变化</li>
+<li>有利于短作业</li>
+<li>长作业优先级越来越高</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="低级调度">低级调度</h3>
+<p>又称进程调度<br>
+所有系统都具备这种调度<br>
+过程：根据算法，从就绪队列选择进程进入处理机</p>
+<ul>
+<li>
+<p>进程调度方式</p>
+<ul>
+<li>非抢占方式</li>
+<li>可抢占方式</li>
+</ul>
+</li>
+<li>
+<p>进程调度算法</p>
+<ul>
+<li>
+<p>(时间片)轮转调度算法(分时系统)</p>
+<ul>
+<li>
+<p>基本原理</p>
+<ul>
+<li>将CPU时间划成大小相同的时间片</li>
+<li>进程按先后顺序排成队列</li>
+</ul>
+</li>
+<li>
+<p>时间片大小的确定</p>
+<ul>
+<li>时间片过小，开销大</li>
+<li>时间片过大，退化为FCFS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>优先级调度算法</p>
+<ul>
+<li>
+<p>优先权类型</p>
+<ul>
+<li>静态优先权</li>
+<li>动态优先权</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>多级反馈队列调度算法</p>
+<ul>
+<li>
+<p>基本原理</p>
+<ul>
+<li>设置多个就绪队列</li>
+<li>分配大小不同，逐级翻倍的时间片</li>
+<li>每一级按照FCFS算法调度</li>
+<li>一级为空，调度下一级</li>
+<li>抢占式策略</li>
+</ul>
+</li>
+<li>
+<p>特点</p>
+<ul>
+<li>性能好</li>
+<li>可以考虑到各个进程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>实时调度</p>
+<ul>
+<li>
+<p>可调度的条件</p>
+<ul>
+<li></li>
+<li>m个硬实时任务</li>
+<li>每个任务处理时间为C</li>
+<li>周期时间为P</li>
+</ul>
+</li>
+<li>
+<p>调度算法</p>
+<ul>
+<li>
+<p>最早截止时间优先算法(EDF)</p>
+<ul>
+<li>根据任务的开始截止时间划分优先级</li>
+</ul>
+</li>
+<li>
+<p>最低松弛度优先算法</p>
+<ul>
+<li>根据任务松弛度划分优先级(松弛度低优先级高)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="中级调度">中级调度</h3>
+<p>过程：暂时不用的进程，从内存调入外存</p>
+<h2 id="死锁">死锁</h2>
+<p>死锁是指两个或多个进程由于资源竞争而造成的一种僵局</p>
+<h3 id="产生死锁的原因">产生死锁的原因</h3>
+<ul>
+<li>竞争资源引起进程死锁</li>
+<li>进程推进顺序不当引起死锁</li>
+</ul>
+<h3 id="产生死锁的必要条件">产生死锁的必要条件</h3>
+<ul>
+<li>互斥条件</li>
+<li>请求保持条件</li>
+<li>不可抢占条件</li>
+<li>循环等待条件</li>
+</ul>
+<h3 id="处理死锁的基本方法">处理死锁的基本方法</h3>
+<ul>
+<li>
+<p>预防死锁</p>
+<ul>
+<li>破坏“请求保持”条件</li>
+<li>破坏“不可抢占”条件</li>
+<li>破坏“循环等待”条件</li>
+</ul>
+</li>
+<li>
+<p>避免死锁</p>
+<ul>
+<li>
+<p>系统状态</p>
+<ul>
+<li>
+<p>安全状态</p>
+<ul>
+<li>保证安全状态则无死锁</li>
+</ul>
+</li>
+<li>
+<p>不安全状态</p>
+</li>
+</ul>
+</li>
+<li>
+<p>避免死锁的算法</p>
+<ul>
+<li>
+<p>银行家算法</p>
+<ul>
+<li>安全性算法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>死锁的检测与解除</p>
+<ul>
+<li>
+<p>死锁定理</p>
+<p>死锁定理：某状态是死锁状态的充分条件是，当且仅当此状态资源分配图是不可完全简化的。</p>
+</li>
+<li>
+<p>死锁检测算法</p>
+</li>
+<li>
+<p>死锁的解除</p>
+<ul>
+<li>剥夺资源</li>
+<li>撤销进程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </article>
+        </main>
+    </div>
+    <div class="doc-footer-nav mdui-color-theme">
+        <div class="mdui-container">
+            <div class="mdui-row">
+                
+                <a href="https://liboran.github.io/post/123/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_back</i>
+                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
+                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">123</div>
+                    </div>
+                </a>
+                
+                
+                <a href="https://liboran.github.io/post/pi/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                    <div class="doc-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="doc-footer-nav-direction">下一篇文章</span>
+                        <div class="doc-footer-nav-chapter">树莓派（一）安装系统</div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="comment"></div>
+</div>
+<footer class="mdui-container footer ">
+    <div class="head_card-offset"></div>
+    <div class="mdui-row mdui-row-gapless">
+        <div class="k-container">
+            <img width="100%" src="/media/img/skirt.png">
+        </div>
+    </div>
+
+    <div class="site-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+</footer>
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+            <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+            <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input name="live2dBGM" value="https://img.apa70.com/123.mp3" type="hidden">
+        <input id="duType" value="douqilai,l2d_caihong" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script>
+    var message_Path = '/media/live2d/';//资源目录，如果目录不对请更改
+    var talkAPI = "";//如果有类似图灵机器人的聊天接口请填写接口路径
+</script>
+<!--<script src="/media/js/jquery-3.3.1.min.js"></script>-->
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/js/message.js"></script>
+
+</body>
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    $('.comment').bind('DOMNodeInserted',()=>{
+        $('.comment').unbind()
+
+        $('.vbtn').addClass(' mdui-btn mdui-color-theme-accent mdui-ripple')
+    })
+
+    let valine = new Valine({
+        el: '.comment',
+        
+        app_id: '4RUTHlzVFV1J44oFFGOAotpq-gzGzoHsz',
+        
+        
+        app_key: 'Iyz1KCAmYezjnY0JcCw4Svj7',
+        
+        
+        placeholder: '你好啊！',
+        
+        path: window.location.pathname,
+        pageSize: 30,
+        avatar:'mm',
+        notify:true
+    })
+</script>
+</html>
