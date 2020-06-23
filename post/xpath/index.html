@@ -50,282 +50,58 @@
         <main id="main" class="site-main" role="main">
             <article id="post-1270" class="post-1270 post type-post status-publish format-standard hentry category-90 category-129 tag-149">
                 <header class="entry-header">
-                    <h1 class="entry-title">操作系统第三章</h1>
-                    <p class="entry-census">发布于 2020-04-24</p>
+                    <h1 class="entry-title">XPath</h1>
+                    <p class="entry-census">发布于 2020-06-24</p>
                     <hr>
                 </header>
                 <div class="neko">
-                    <p>处理机调度与死锁</p>
+                    <p>爬虫基础中对于xpath的匹配</p>
 <!-- more -->
-<h1 id="处理机调度与死锁">处理机调度与死锁</h1>
-<p><a href='https://liboran.github.io/media/img/OS/unit_3.html'>Xmind链接</a></p>
-<h2 id="调度层次">调度层次</h2>
-<p>处理机调度算法目标<br>
-资源利用率<br>
-公平性<br>
-平衡性<br>
-策略强制执行</p>
-<h3 id="高级调度">高级调度</h3>
-<p>又称作业调度<br>
-仅限批处理系统<br>
-过程：选择作业，创建进程，分配资源，插入队列</p>
-<ul>
-<li>
-<p>主要任务</p>
-<ul>
-<li>1.判断接纳多少作业</li>
-<li>2.判断接纳哪些作业</li>
-</ul>
-</li>
-<li>
-<p>主要算法</p>
-<ul>
-<li>
-<p>先来先服务算法(FCFS)</p>
-<ul>
-<li>
-<p>特点</p>
-<ul>
-<li>有利于长作业，不利于短作业</li>
-<li>有利于CPU繁忙型作业，不利于I/O型作业</li>
-<li>作业平均等待时间长</li>
-<li>吞吐量不高</li>
-</ul>
-</li>
-<li>
-<p>性能衡量标准</p>
-<ul>
-<li>
-<p>平均周转时间</p>
-<p>周转时间=完成时间-到达时间</p>
-</li>
-<li>
-<p>平均带权周转时间</p>
-<p>带权周转时间=周转时间/运行时间</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>短作业(进程)优先调度算法(SJF)</p>
-<ul>
-<li>
-<p>特点</p>
-<ul>
-<li>有效降低平均等待时间</li>
-<li>提高系统吞吐量</li>
-<li>对长作业不利</li>
-<li>未考虑到作业紧迫程度</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>优先级调度算法</p>
-<ul>
-<li>
-<p>特点</p>
-<ul>
-<li>基于作业紧迫程度进行调度</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>高相应比优先调度算法</p>
-<ul>
-<li>
-<p>特点</p>
-<ul>
-<li>优先权可变化</li>
-<li>有利于短作业</li>
-<li>长作业优先级越来越高</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="低级调度">低级调度</h3>
-<p>又称进程调度<br>
-所有系统都具备这种调度<br>
-过程：根据算法，从就绪队列选择进程进入处理机</p>
-<ul>
-<li>
-<p>进程调度方式</p>
-<ul>
-<li>非抢占方式</li>
-<li>可抢占方式</li>
-</ul>
-</li>
-<li>
-<p>进程调度算法</p>
-<ul>
-<li>
-<p>(时间片)轮转调度算法(分时系统)</p>
-<ul>
-<li>
-<p>基本原理</p>
-<ul>
-<li>将CPU时间划成大小相同的时间片</li>
-<li>进程按先后顺序排成队列</li>
-</ul>
-</li>
-<li>
-<p>时间片大小的确定</p>
-<ul>
-<li>时间片过小，开销大</li>
-<li>时间片过大，退化为FCFS</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>优先级调度算法</p>
-<ul>
-<li>
-<p>优先权类型</p>
-<ul>
-<li>静态优先权</li>
-<li>动态优先权</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>多级反馈队列调度算法</p>
-<ul>
-<li>
-<p>基本原理</p>
-<ul>
-<li>设置多个就绪队列</li>
-<li>分配大小不同，逐级翻倍的时间片</li>
-<li>每一级按照FCFS算法调度</li>
-<li>一级为空，调度下一级</li>
-<li>抢占式策略</li>
-</ul>
-</li>
-<li>
-<p>特点</p>
-<ul>
-<li>性能好</li>
-<li>可以考虑到各个进程</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>实时调度</p>
-<ul>
-<li>
-<p>可调度的条件</p>
-<ul>
-<li></li>
-<li>m个硬实时任务</li>
-<li>每个任务处理时间为C</li>
-<li>周期时间为P</li>
-</ul>
-</li>
-<li>
-<p>调度算法</p>
-<ul>
-<li>
-<p>最早截止时间优先算法(EDF)</p>
-<ul>
-<li>根据任务的开始截止时间划分优先级</li>
-</ul>
-</li>
-<li>
-<p>最低松弛度优先算法</p>
-<ul>
-<li>根据任务松弛度划分优先级(松弛度低优先级高)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="中级调度">中级调度</h3>
-<p>过程：暂时不用的进程，从内存调入外存</p>
-<h2 id="死锁">死锁</h2>
-<p>死锁是指两个或多个进程由于资源竞争而造成的一种僵局</p>
-<h3 id="产生死锁的原因">产生死锁的原因</h3>
-<ul>
-<li>竞争资源引起进程死锁</li>
-<li>进程推进顺序不当引起死锁</li>
-</ul>
-<h3 id="产生死锁的必要条件">产生死锁的必要条件</h3>
-<ul>
-<li>互斥条件</li>
-<li>请求保持条件</li>
-<li>不可抢占条件</li>
-<li>循环等待条件</li>
-</ul>
-<h3 id="处理死锁的基本方法">处理死锁的基本方法</h3>
-<ul>
-<li>
-<p>预防死锁</p>
-<ul>
-<li>破坏“请求保持”条件</li>
-<li>破坏“不可抢占”条件</li>
-<li>破坏“循环等待”条件</li>
-</ul>
-</li>
-<li>
-<p>避免死锁</p>
-<ul>
-<li>
-<p>系统状态</p>
-<ul>
-<li>
-<p>安全状态</p>
-<ul>
-<li>保证安全状态则无死锁</li>
-</ul>
-</li>
-<li>
-<p>不安全状态</p>
-</li>
-</ul>
-</li>
-<li>
-<p>避免死锁的算法</p>
-<ul>
-<li>
-<p>银行家算法</p>
-<ul>
-<li>安全性算法</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>死锁的检测与解除</p>
-<ul>
-<li>
-<p>死锁定理</p>
-<p>死锁定理：某状态是死锁状态的充分条件是，当且仅当此状态资源分配图是不可完全简化的。</p>
-</li>
-<li>
-<p>死锁检测算法</p>
-</li>
-<li>
-<p>死锁的解除</p>
-<ul>
-<li>剥夺资源</li>
-<li>撤销进程</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h1 id="xpath使用方法lxmletree">XPath使用方法(lxml.etree)</h1>
+<pre><code class="language-python">from lxml import etree
+</code></pre>
+<h3 id="testhtml">test.html</h3>
+<div>
+    <ul>
+         <li class="item-0"><a href="link1.html">first item</a></li>
+         <li class="item-1"><a href="link2.html">second item</a></li>
+         <li class="item-inactive"><a href="link3.html">third item</a></li>
+         <li class="item-1"><a href="link4.html">fourth item</a></li>
+         <li class="item-0"><a href="link5.html">fifth item</a>
+     </ul>
+ </div>
+<pre><code class="language-python">html = etree.parse('./test.html', etree.HTMLParser())
+</code></pre>
+<p>获取父节点</p>
+<pre><code class="language-python"># result = html.xpath('//a[@href=&quot;link4.html&quot;]/../@class') # 使用/..来获取选中节点的父节点
+result = html.xpath('//a[@href=&quot;link4.html&quot;]/parent::*/@class') # 使用/parent::来获取选中节点的父节点
+print(result)
+</code></pre>
+<pre><code>['item-1']
+</code></pre>
+<p>获取节点文本</p>
+<pre><code class="language-python">result = html.xpath('//a[@href=&quot;link1.html&quot;]/text()') # 获取某个节点中的文本内容使用/text()
+print(result)
+result = html.xpath('//li[@class=&quot;item-0&quot;]/a/text()')
+print(result)
+</code></pre>
+<pre><code>['first item']
+['first item', 'fifth item']
+</code></pre>
+<p>属性多值匹配</p>
+<pre><code class="language-python">result = html.xpath('//a[contains(@href, &quot;html&quot;)]/text()') # 使用contains()函数来进行属性多值匹配
+print(result)
+</code></pre>
+<pre><code>['first item', 'second item', 'third item', 'fourth item', 'fifth item']
+</code></pre>
+<p>多属性匹配</p>
+<pre><code class="language-python">text = '&lt;li class=&quot;li li-first&quot; name=&quot;item&quot;&gt;&lt;a href=&quot;link.html&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;'
+text_html = etree.HTML(text)
+result = text_html.xpath('//li[contains(@class, &quot;li&quot;) and @name=&quot;item&quot;]/a/text()') # 使用and添加需要匹配的属性
+print(result)
+</code></pre>
+<pre><code>['first item']
+</code></pre>
 
                 </div>
             </article>
@@ -335,20 +111,14 @@
         <div class="mdui-container">
             <div class="mdui-row">
                 
-                <a href="https://liboran.github.io/post/xpath/" class="mdui-ripple mdui-color-theme mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left">
-                    <div class="doc-footer-nav-text">
-                        <i class="mdui-icon material-icons">arrow_back</i>
-                        <span class="doc-footer-nav-direction mdui-hidden-xs-down">上一篇文章</span>
-                        <div class="doc-footer-nav-chapter mdui-hidden-xs-down">XPath</div>
-                    </div>
-                </a>
+                <div class="mdui-col-xs-2 mdui-col-sm-6 doc-footer-nav-left"></div>
                 
                 
-                <a href="https://liboran.github.io/post/pi/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
+                <a href="https://liboran.github.io/post/os_u3/" class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6 doc-footer-nav-right">
                     <div class="doc-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="doc-footer-nav-direction">下一篇文章</span>
-                        <div class="doc-footer-nav-chapter">树莓派（一）安装系统</div>
+                        <div class="doc-footer-nav-chapter">操作系统第三章</div>
                     </div>
                 </a>
                 
